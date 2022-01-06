@@ -1,0 +1,148 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+$colorText: #000000;
+$colorWhite: #ffffff;
+$colorGreen: hsl(96%, 41%, 60%);
+$colorBrown: hsl(29.6, 58.7%, 52.5%);
+$colorGray: #a9a9a9;
+$t: 0.3s;
+$radius: 3px;
+.App {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: $colorWhite;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.subtitle {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.menu {
+  margin-bottom: 30px;
+  &__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0 0 -20px -20px;
+  }
+  &__item {
+    margin: 0 0 20px 20px;
+    a {
+      text-decoration: none;
+      color: $colorWhite;
+      font-weight: 600;
+      display: inline-block;
+      padding: 5px 10px;
+      background: $colorGreen;
+      transition: background $t;
+      border-radius: $radius;
+    }
+    &:hover a {
+      background: darken($colorGreen, 10%);
+    }
+  }
+}
+
+button {
+  border-radius: $radius;
+  min-width: 1fr;
+  &:disabled {
+    cursor: not-allowed;
+    background: $colorGray;
+    &:hover {
+      background: $colorGray;
+    }
+  }
+}
+.login {
+  .form {
+    margin: 0 auto;
+  }
+}
+
+.cms {
+  position: relative;
+  //   &__btns {
+  //     display: flex;
+  //     margin: 0 0 0 -15px;
+  //     button {
+  //       margin: 0 0 15px 15px;
+  //     }
+  //   }
+}
+
+.intro {
+  margin-bottom: 20px;
+}
+
+.btn-logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.form {
+  max-width: 235px;
+  margin-bottom: 30px;
+  &__item {
+    margin-bottom: 20px;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+.btns {
+  max-width: 235px;
+  gap: 15px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+input {
+  border: none;
+  padding: 5px 10px 5px 0;
+  outline: none;
+  display: inline-block;
+  width: 100%;
+
+  border-bottom: 1px solid $colorBrown;
+  transition: border-color $t;
+  &:focus,
+  &:active {
+    border-color: $colorGreen;
+    background-color: $colorWhite;
+  }
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+button {
+  background: $colorBrown;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background $t;
+  color: $colorWhite;
+  &:hover {
+    background: darken($colorBrown, 10%);
+  }
+}
