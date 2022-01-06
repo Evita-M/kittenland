@@ -36,7 +36,11 @@ const CMS = () => {
       </p>
 
       {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
-      {data ? <Kittens data={data} /> : <p>You have no kittens.</p>}
+      {data ? (
+        <Kittens data={data} isAdmin={true} />
+      ) : (
+        <p>You have no kittens.</p>
+      )}
     </div>
   );
 };

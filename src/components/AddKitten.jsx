@@ -1,23 +1,25 @@
 import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
+import { v4 as uuidv4 } from "uuid";
 
 const AddKitten = ({ toggleShowForm }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [price, setPrice] = useState("");
-  const { updateStorage } = useContext(StorageContext);
+  const { addKitten } = useContext(StorageContext);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
     const kitten = {
-      id: Math.floor(Math.random() * 100000),
+      id: uuidv4(),
       name: name,
       age: age,
       price: price,
+      inBasket: false,
     };
 
-    updateStorage(kitten);
+    addKitten(kitten);
 
     setName("");
     setAge("");

@@ -6,18 +6,24 @@
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-$colorText: #000000;
+
+$celadon-blue: hsla(198, 63%, 38%, 1);
+$green-sheen: hsla(170, 40%, 60%, 1);
+$turquoise-green: hsla(139, 36%, 78%, 1);
+$cream: hsla(71, 100%, 87%, 1);
+$radical-pink: hsla(344, 100%, 54%, 1);
 $colorWhite: #ffffff;
-$colorGreen: hsl(96%, 41%, 60%);
-$colorBrown: hsl(29.6, 58.7%, 52.5%);
-$colorGray: #a9a9a9;
+$gray: #a9a9a9;
+
 $t: 0.3s;
 $radius: 3px;
 .App {
   max-width: 1000px;
   margin: 0 auto;
-  background-color: $colorWhite;
-  height: 100vh;
+  background: $colorWhite;
+  padding: 30px;
+  min-height: 100vh;
+  box-shadow: 0 0 10px 5px rgba($gray, 0.5);
 }
 
 .title {
@@ -31,6 +37,7 @@ $radius: 3px;
 
 .menu {
   margin-bottom: 30px;
+  position: relative;
   &__list {
     display: flex;
     justify-content: center;
@@ -45,27 +52,34 @@ $radius: 3px;
       font-weight: 600;
       display: inline-block;
       padding: 5px 10px;
-      background: $colorGreen;
+      background: $green-sheen;
       transition: background $t;
       border-radius: $radius;
     }
     &:hover a {
-      background: darken($colorGreen, 10%);
+      background: darken($green-sheen, 10%);
     }
   }
+}
+.basket {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  top: 0;
 }
 
 button {
   border-radius: $radius;
-  min-width: 1fr;
+  display: inline-block;
   &:disabled {
     cursor: not-allowed;
-    background: $colorGray;
+    background: $gray;
     &:hover {
-      background: $colorGray;
+      background: $gray;
     }
   }
 }
+
 .login {
   .form {
     margin: 0 auto;
@@ -74,17 +88,38 @@ button {
 
 .cms {
   position: relative;
-  //   &__btns {
-  //     display: flex;
-  //     margin: 0 0 0 -15px;
-  //     button {
-  //       margin: 0 0 15px 15px;
-  //     }
-  //   }
 }
 
 .intro {
   margin-bottom: 20px;
+}
+
+.kittens {
+  &__list {
+    list-style: none;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &__item {
+    background: $green-sheen;
+    border-radius: $radius;
+    padding: 10px;
+  }
+}
+
+.kitten {
+  &__img {
+    background: $colorWhite;
+    padding: 15px;
+    border-radius: $radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+  }
 }
 
 .btn-logout {
@@ -118,12 +153,11 @@ input {
   outline: none;
   display: inline-block;
   width: 100%;
-
-  border-bottom: 1px solid $colorBrown;
+  border-bottom: 1px solid $green-sheen;
   transition: border-color $t;
   &:focus,
   &:active {
-    border-color: $colorGreen;
+    border-color: $radical-pink;
     background-color: $colorWhite;
   }
 }
@@ -132,10 +166,14 @@ label {
   display: block;
   text-align: left;
   font-size: 12px;
+  color: $green-sheen;
+  font-weight: bold;
+  letter-spacing: 0.5px;
   margin-bottom: 5px;
 }
 button {
-  background: $colorBrown;
+  background: $radical-pink;
+  font-family: "Mukta", sans-serif;
   padding: 5px 10px;
   outline: none;
   border: 1px solid transparent;
@@ -143,6 +181,6 @@ button {
   transition: background $t;
   color: $colorWhite;
   &:hover {
-    background: darken($colorBrown, 10%);
+    background: darken($radical-pink, 10%);
   }
 }

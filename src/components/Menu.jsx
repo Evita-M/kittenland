@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Basket from "./Basket";
 
 const Menu = () => {
   return (
@@ -16,6 +17,7 @@ const Menu = () => {
             <NavLink to="/cms">CMS</NavLink>
           </li>
         </ul>
+        <Basket />
       </nav>
     </>
   );

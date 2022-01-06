@@ -1,14 +1,19 @@
 import React from "react";
+import Kitten from "./Kitten";
 
-const Kittens = ({ data }) => {
+const Kittens = ({ data, isAdmin }) => {
   return (
-    <div>
-      <ul>
+    <section className="kittens">
+      <ul className="kittens__list">
         {data.map((item) => {
-          return <li key={item.id}>{item.name}</li>;
+          return (
+            <li key={item.id} className="kittens__item">
+              <Kitten item={item} isAdmin={isAdmin} />
+            </li>
+          );
         })}
       </ul>
-    </div>
+    </section>
   );
 };
 

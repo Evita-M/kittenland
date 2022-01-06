@@ -15,7 +15,14 @@ const Home = () => {
         reiciendis ea dolorem enim voluptas! Culpa soluta mollitia eveniet
         delectus architecto pariatur et quis debitis illo, saepe corporis animi!
       </p>
-      {data ? <Kittens data={data} /> : <p>No kittens to buy</p>}
+      {data ? (
+        <Kittens
+          data={data.filter((item) => item.inBasket === false)}
+          isAdmin={false}
+        />
+      ) : (
+        <p>No kittens to buy</p>
+      )}
     </div>
   );
 };
