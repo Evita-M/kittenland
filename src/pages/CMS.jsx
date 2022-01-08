@@ -13,16 +13,24 @@ const CMS = () => {
     setShowForm(!showForm);
   };
 
+  const checkEmptyData = () => {
+    if (data.length === 0 || data === null || data === undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div className="cms">
       <h2 className="subtitle">CMS</h2>
       <p>
-        <button className="btn-logout" onClick={() => logout()}>
+        <button className="btn-logout" onClick={logout}>
           Logout
         </button>
       </p>
       <p className="intro">
-        Hello <strong>{username}</strong> , you are logged in. Here are yout
+        Hello <strong>{username}</strong> , you are logged in. Here are your
         kittens to sell.
       </p>
       <p className="btns">
@@ -30,16 +38,16 @@ const CMS = () => {
           Add kitten
         </button>
 
-        <button onClick={clearStorage} disabled={!data}>
+        <button onClick={clearStorage} disabled={checkEmptyData()}>
           Clear kittens
         </button>
       </p>
 
       {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
-      {data ? (
-        <Kittens data={data} isAdmin={true} />
-      ) : (
+      {checkEmptyData() ? (
         <p>You have no kittens.</p>
+      ) : (
+        <Kittens data={data} isAdmin={true} />
       )}
     </div>
   );

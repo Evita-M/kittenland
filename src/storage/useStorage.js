@@ -45,16 +45,21 @@ function useStorage() {
   const getKitten = (id) => {
     const kitten = data.filter((item) => {
       return item.id === id;
-    });
+    })[0];
 
     return kitten;
   };
 
   const updateBasketStatus = (id, status) => {
-    const kitten = getKitten(id)[0];
+    const kitten = getKitten(id);
     kitten.inBasket = status;
 
     removeKitten(id);
+    addKitten(kitten);
+  };
+
+  const updateKitten = (kitten) => {
+    removeKitten(kitten.id);
     addKitten(kitten);
   };
 
@@ -73,6 +78,7 @@ function useStorage() {
 
     return () => {
       setData([]);
+      setBasketCount(0);
     };
   }, []);
 
@@ -80,11 +86,12 @@ function useStorage() {
     data,
     basketCount,
     addKitten,
+    getKitten,
+    updateKitten,
+    removeKitten,
     readStorage,
     updateStorage,
     clearStorage,
-    getKitten,
-    removeKitten,
     updateBasketStatus,
   };
 }
