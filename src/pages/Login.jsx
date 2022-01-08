@@ -4,19 +4,19 @@ import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleUserChange = (e) => {
+    setUser(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    login(username, password);
+    login(user, password);
     navigate("/cms");
   };
 
@@ -24,14 +24,14 @@ const Login = () => {
     <div className="login">
       <form className="form">
         <p className="form__item">
-          <label htmlFor="username" className="input__label">
-            Username
+          <label htmlFor="user" className="input__label">
+            User
           </label>
           <input
-            onChange={handleUsernameChange}
+            onChange={handleUserChange}
             type="text"
-            name="username"
-            id="username"
+            name="user"
+            id="user"
           />
         </p>
         <p className="form__item">

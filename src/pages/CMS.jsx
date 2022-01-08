@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { StorageContext } from "../context/StorageContext";
 
 const CMS = () => {
-  const { logout, username } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
   const { clearStorage, data } = useContext(StorageContext);
   const [showForm, setShowForm] = useState(false);
 
@@ -14,7 +14,7 @@ const CMS = () => {
   };
 
   const checkEmptyData = () => {
-    if (data.length === 0 || data === null || data === undefined) {
+    if (data === null || data === undefined || data.length === 0) {
       return true;
     } else {
       return false;
@@ -30,8 +30,8 @@ const CMS = () => {
         </button>
       </p>
       <p className="intro">
-        Hello <strong>{username}</strong> , you are logged in. Here are your
-        kittens to sell.
+        Hello <strong>{user.username}</strong> , you are logged in. Here are
+        your kittens to sell.
       </p>
       <p className="btns">
         <button onClick={toggleShowForm} disabled={showForm}>
