@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
 import { v4 as uuidv4 } from "uuid";
+import { ButtonDefault, DivGrid } from "../styles/styles";
 
 const AddKitten = ({ toggleShowForm }) => {
   const [name, setName] = useState("");
@@ -70,12 +71,12 @@ const AddKitten = ({ toggleShowForm }) => {
             required
           />
         </p>
-        <p className="btns">
-          <button type="submit">Add</button>
-          <button type="button" onClick={toggleShowForm}>
+        <DivGrid>
+          <ButtonDefault type="submit">Add</ButtonDefault>
+          <ButtonDefault type="button" onClick={toggleShowForm}>
             Close
-          </button>
-        </p>
+          </ButtonDefault>
+        </DivGrid>
       </form>
     </>
   );

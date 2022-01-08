@@ -1,18 +1,34 @@
 import React from "react";
 import Kitten from "./Kitten";
+import { Ul, Li } from "glamorous";
+import { colors, globalVars } from "../styles/styles";
 
 const Kittens = ({ data, isAdmin }) => {
+  const ulStyles = {
+    listStyle: "none",
+    display: "grid",
+    gap: 15,
+    gridTemplateColumns: "repeat(5,1fr)",
+  };
+
+  const liStyles = {
+    // background: colors.cream,
+    // border: `2px solid ${colors.greenSheen}`,
+    // borderRadius: globalVars.radius,
+    // padding: 10,
+  };
+
   return (
-    <section className="kittens">
-      <ul className="kittens__list">
+    <section>
+      <Ul css={ulStyles}>
         {data.map((item) => {
           return (
-            <li key={item.id} className="kittens__item">
+            <Li key={item.id} css={liStyles}>
               <Kitten item={item} isAdmin={isAdmin} />
-            </li>
+            </Li>
           );
         })}
-      </ul>
+      </Ul>
     </section>
   );
 };

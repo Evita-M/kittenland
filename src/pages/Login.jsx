@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { ButtonDefault } from "../styles/styles";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -46,9 +47,13 @@ const Login = () => {
           />{" "}
         </p>
         <p className="form__item">
-          <button onClick={handleOnSubmit} type="submit">
+          <ButtonDefault
+            css={{ width: "100%" }}
+            onClick={handleOnSubmit}
+            type="submit"
+          >
             Login
-          </button>
+          </ButtonDefault>
         </p>
       </form>
     </div>

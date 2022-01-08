@@ -3,6 +3,8 @@ import AddKitten from "../components/AddKitten";
 import Kittens from "../components/Kittens";
 import { AuthContext } from "../context/AuthContext";
 import { StorageContext } from "../context/StorageContext";
+import { ButtonDefault, DivGrid } from "../styles/styles";
+import { Div } from "glamorous";
 
 const CMS = () => {
   const { logout, user } = useContext(AuthContext);
@@ -25,25 +27,27 @@ const CMS = () => {
     <div className="cms">
       <h2 className="subtitle">CMS</h2>
       <p>
-        <button className="btn-logout" onClick={logout}>
+        <ButtonDefault className="btn-logout" onClick={logout}>
           Logout
-        </button>
+        </ButtonDefault>
       </p>
       <p className="intro">
         Hello <strong>{user.username}</strong> , you are logged in. Here are
         your kittens to sell.
       </p>
-      <p className="btns">
-        <button onClick={toggleShowForm} disabled={showForm}>
-          Add kitten
-        </button>
+      <Div css={{ maxWidth: "350px" }}>
+        <DivGrid>
+          <ButtonDefault onClick={toggleShowForm} disabled={showForm}>
+            Add kitten
+          </ButtonDefault>
 
-        <button onClick={clearStorage} disabled={checkEmptyData()}>
-          Clear kittens
-        </button>
-      </p>
+          <ButtonDefault onClick={clearStorage} disabled={checkEmptyData()}>
+            Clear kittens
+          </ButtonDefault>
+        </DivGrid>
 
-      {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
+        {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
+      </Div>
       {checkEmptyData() ? (
         <p>You have no kittens.</p>
       ) : (

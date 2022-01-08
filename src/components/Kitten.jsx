@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { StorageContext } from "../context/StorageContext";
+import { ButtonDefault, ArticleKitten, ImageDefault } from "../styles/styles";
 
 const Kitten = ({ item, isAdmin }) => {
   const { removeKitten, updateBasketStatus } = useContext(StorageContext);
 
   return (
-    <article className="kitten">
-      <div className="kitten__img">
-        <img
+    <ArticleKitten>
+      <div>
+        <ImageDefault
           src={`https://robohash.org/${item.name}.png?set=set4`}
           alt="item.name"
           width={100}
@@ -19,12 +20,19 @@ const Kitten = ({ item, isAdmin }) => {
       <p>Price: {item.price}</p>
       <p>
         {isAdmin ? (
-          <button onClick={() => removeKitten(item.id)}>Delete</button>
+          <ButtonDefault
+            css={{ width: "100%" }}
+            onClick={() => removeKitten(item.id)}
+          >
+            Delete
+          </ButtonDefault>
         ) : (
-          <button onClick={() => updateBasketStatus(item.id, true)}>Buy</button>
+          <ButtonDefault onClick={() => updateBasketStatus(item.id, true)}>
+            Buy
+          </ButtonDefault>
         )}
       </p>
-    </article>
+    </ArticleKitten>
   );
 };
 

@@ -68,18 +68,6 @@ $radius: 3px;
   top: 0;
 }
 
-button {
-  border-radius: $radius;
-  display: inline-block;
-  &:disabled {
-    cursor: not-allowed;
-    background: $gray;
-    &:hover {
-      background: $gray;
-    }
-  }
-}
-
 .login {
   .form {
     margin: 0 auto;
@@ -94,32 +82,15 @@ button {
   margin-bottom: 20px;
 }
 
-.kittens {
-  &__list {
-    list-style: none;
-    display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(5, 1fr);
-  }
-  &__item {
-    background: $green-sheen;
-    border-radius: $radius;
-    padding: 10px;
-  }
-}
-
 .kitten {
-  &__img {
-    background: $colorWhite;
-    padding: 15px;
-    border-radius: $radius;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  button {
-    width: 100%;
-  }
+  //   &__img {
+  //     background: $colorWhite;
+  //     padding: 15px;
+  //     border-radius: $radius;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
 }
 
 .btn-logout {
@@ -129,22 +100,10 @@ button {
 }
 
 .form {
-  max-width: 235px;
   margin-bottom: 30px;
   &__item {
     margin-bottom: 20px;
   }
-  button {
-    width: 100%;
-  }
-}
-
-.btns {
-  max-width: 235px;
-  gap: 15px;
-  margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 input {
@@ -170,17 +129,4 @@ label {
   font-weight: bold;
   letter-spacing: 0.5px;
   margin-bottom: 5px;
-}
-button {
-  background: $radical-pink;
-  font-family: "Mukta", sans-serif;
-  padding: 5px 10px;
-  outline: none;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: background $t;
-  color: $colorWhite;
-  &:hover {
-    background: darken($radical-pink, 10%);
-  }
 }
