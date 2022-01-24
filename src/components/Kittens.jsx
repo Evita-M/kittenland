@@ -1,21 +1,14 @@
 import React from "react";
 import Kitten from "./Kitten";
 import { Ul, Li } from "glamorous";
-import { colors, globalVars } from "../styles/styles";
 
 const Kittens = ({ data, isAdmin }) => {
   const ulStyles = {
+    marginTop: 50,
     listStyle: "none",
     display: "grid",
-    gap: 15,
-    gridTemplateColumns: "repeat(5,1fr)",
-  };
-
-  const liStyles = {
-    // background: colors.cream,
-    // border: `2px solid ${colors.greenSheen}`,
-    // borderRadius: globalVars.radius,
-    // padding: 10,
+    gap: "40px 20px",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
   };
 
   return (
@@ -23,7 +16,7 @@ const Kittens = ({ data, isAdmin }) => {
       <Ul css={ulStyles}>
         {data.map((item) => {
           return (
-            <Li key={item.id} css={liStyles}>
+            <Li key={item.id}>
               <Kitten item={item} isAdmin={isAdmin} />
             </Li>
           );

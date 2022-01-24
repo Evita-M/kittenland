@@ -1,7 +1,14 @@
+import { Div } from "glamorous";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-import { ButtonDefault } from "../styles/styles";
+import {
+  ButtonDefault,
+  FormDefault,
+  FormItemDefault,
+  InputDefault,
+  LabelDefault,
+} from "../styles/styles";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -22,41 +29,36 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <form className="form">
-        <p className="form__item">
-          <label htmlFor="user" className="input__label">
-            User
-          </label>
-          <input
+    <Div maxWidth="400px" margin="0 auto">
+      <FormDefault>
+        <FormItemDefault>
+          <LabelDefault htmlFor="user">User</LabelDefault>
+          <InputDefault
             onChange={handleUserChange}
             type="text"
             name="user"
             id="user"
           />
-        </p>
-        <p className="form__item">
-          <label htmlFor="password" className="input__label">
-            Password
-          </label>
-          <input
+        </FormItemDefault>
+        <FormItemDefault>
+          <LabelDefault htmlFor="password">Password</LabelDefault>
+          <InputDefault
             onChange={handlePasswordChange}
             type="password"
             name="password"
             id="password"
           />{" "}
-        </p>
-        <p className="form__item">
-          <ButtonDefault
-            css={{ width: "100%" }}
-            onClick={handleOnSubmit}
-            type="submit"
-          >
-            Login
-          </ButtonDefault>
-        </p>
-      </form>
-    </div>
+        </FormItemDefault>
+
+        <ButtonDefault
+          css={{ width: "100%" }}
+          onClick={handleOnSubmit}
+          type="submit"
+        >
+          Login
+        </ButtonDefault>
+      </FormDefault>
+    </Div>
   );
 };
 

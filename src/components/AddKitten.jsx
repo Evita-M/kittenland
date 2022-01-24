@@ -1,12 +1,21 @@
 import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
 import { v4 as uuidv4 } from "uuid";
-import { ButtonDefault, DivGrid } from "../styles/styles";
+import {
+  ButtonDefault,
+  DivGrid,
+  InputDefault,
+  LabelDefault,
+  TextareaDefault,
+  FormDefault,
+  FormItemDefault,
+} from "../styles/styles";
 
 const AddKitten = ({ toggleShowForm }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [price, setPrice] = useState("");
+  const [desc, setDesc] = useState("");
   const { addKitten } = useContext(StorageContext);
 
   const handleOnSubmit = (e) => {
@@ -17,6 +26,7 @@ const AddKitten = ({ toggleShowForm }) => {
       name: name,
       age: age,
       price: price,
+      desc: desc,
       inBasket: false,
     };
 
@@ -25,17 +35,19 @@ const AddKitten = ({ toggleShowForm }) => {
     setName("");
     setAge("");
     setPrice("");
+    setDesc("");
 
     toggleShowForm();
   };
 
   return (
     <>
-      <form className="form" onSubmit={handleOnSubmit}>
-        <p className="form__item">
-          <label htmlFor="name">Name:</label>
-          <input
+      <FormDefault onSubmit={handleOnSubmit}>
+        <FormItemDefault>
+          <LabelDefault htmlFor="name">Name:</LabelDefault>
+          <InputDefault
             type="text"
+            maxLength={15}
             id="name"
             name="name"
             onChange={(e) => {
@@ -44,11 +56,13 @@ const AddKitten = ({ toggleShowForm }) => {
             value={name}
             required
           />
-        </p>
-        <p className="form__item">
-          <label htmlFor="age">Age:</label>
-          <input
+        </FormItemDefault>
+        <FormItemDefault>
+          <LabelDefault htmlFor="age">Age:</LabelDefault>
+          <InputDefault
             type="number"
+            min={1}
+            max={30}
             id="age"
             name="age"
             onChange={(e) => {
@@ -57,11 +71,13 @@ const AddKitten = ({ toggleShowForm }) => {
             value={age}
             required
           />
-        </p>
-        <p className="form__item">
-          <label htmlFor="price">Price in EUR:</label>
-          <input
+        </FormItemDefault>
+        <FormItemDefault>
+          <LabelDefault htmlFor="price">Price in EUR:</LabelDefault>
+          <InputDefault
             type="number"
+            min={0}
+            max={9999}
             id="price"
             name="price"
             onChange={(e) => {
@@ -70,14 +86,28 @@ const AddKitten = ({ toggleShowForm }) => {
             value={price}
             required
           />
-        </p>
+        </FormItemDefault>
+        <FormItemDefault>
+          <LabelDefault htmlFor="desc">Description:</LabelDefault>
+          <TextareaDefault
+            rows={5}
+            maxLength={60}
+            id="desc"
+            name="desc"
+            onChange={(e) => {
+              setDesc(e.target.value);
+            }}
+            value={desc}
+            required
+          />
+        </FormItemDefault>
         <DivGrid>
           <ButtonDefault type="submit">Add</ButtonDefault>
           <ButtonDefault type="button" onClick={toggleShowForm}>
             Close
           </ButtonDefault>
         </DivGrid>
-      </form>
+      </FormDefault>
     </>
   );
 };

@@ -9,13 +9,18 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Login from "./pages/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import logo from "./assets/logo-kittenland.png";
+import { Logo } from "./styles/styles";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const { isLogged } = useContext(AuthContext);
 
   return (
     <div className="App">
-      <h1 className="title">KittenLand</h1>
+      <Logo>
+        <img src={logo} alt="" width={150} height={150} />
+      </Logo>
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,6 +32,7 @@ function App() {
           path="login"
           element={isLogged ? <Navigate to="/cms" /> : <Login />}
         />
+        <Route path="checkout" element={<Checkout />} />
         <Route
           path="*"
           element={

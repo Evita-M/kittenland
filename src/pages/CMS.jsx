@@ -24,13 +24,15 @@ const CMS = () => {
   };
 
   return (
-    <div className="cms">
+    <Div position="relative">
       <h2 className="subtitle">CMS</h2>
-      <p>
-        <ButtonDefault className="btn-logout" onClick={logout}>
-          Logout
-        </ButtonDefault>
-      </p>
+      <ButtonDefault
+        css={{ position: "absolute", top: 0, right: 0 }}
+        onClick={logout}
+      >
+        Logout
+      </ButtonDefault>
+
       <p className="intro">
         Hello <strong>{user.username}</strong> , you are logged in. Here are
         your kittens to sell.
@@ -53,7 +55,7 @@ const CMS = () => {
       ) : (
         <Kittens data={data} isAdmin={true} />
       )}
-    </div>
+    </Div>
   );
 };
 

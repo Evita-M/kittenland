@@ -9,14 +9,14 @@ import { AuthProvider } from "./context/AuthContext";
 import { StorageProvider } from "./context/StorageContext";
 
 ReactDOM.render(
-  //   <React.StrictMode>
-  <StorageProvider>
-    <AuthProvider>
-      <Router>
-        <App />
-      </Router>
-    </AuthProvider>
-  </StorageProvider>,
-  //   </React.StrictMode>,
+  <React.Fragment>
+    <StorageProvider>
+      <AuthProvider>
+        <Router>
+          <App />
+        </Router>
+      </AuthProvider>
+    </StorageProvider>
+  </React.Fragment>,
   document.getElementById("root")
 );

@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Basket from "./Basket";
+import { NavLinkDefault } from "../styles/styles";
+import BasketButton from "./BasketButton";
 
 const Menu = () => {
   return (
@@ -8,16 +8,16 @@ const Menu = () => {
       <nav className="menu">
         <ul className="menu__list">
           <li className="menu__item">
-            <NavLink to="/">Home</NavLink>
+            <NavLinkDefault to="/">Home</NavLinkDefault>
           </li>
           <li className="menu__item">
-            <NavLink to="/about">About</NavLink>
+            <NavLinkDefault to="/about">About</NavLinkDefault>
           </li>
           <li className="menu__item">
-            <NavLink to="/cms">CMS</NavLink>
+            <NavLinkDefault to="/cms">CMS</NavLinkDefault>
           </li>
         </ul>
-        <Basket />
+        <BasketButton />
       </nav>
     </>
   );

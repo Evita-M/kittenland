@@ -21,7 +21,7 @@ $radius: 3px;
   max-width: 1000px;
   margin: 0 auto;
   background: $colorWhite;
-  padding: 30px;
+  padding: 15px;
   min-height: 100vh;
   box-shadow: 0 0 10px 5px rgba($gray, 0.5);
 }
@@ -46,87 +46,22 @@ $radius: 3px;
   }
   &__item {
     margin: 0 0 20px 20px;
-    a {
-      text-decoration: none;
-      color: $colorWhite;
-      font-weight: 600;
-      display: inline-block;
-      padding: 5px 10px;
-      background: $green-sheen;
-      transition: background $t;
-      border-radius: $radius;
-    }
-    &:hover a {
-      background: darken($green-sheen, 10%);
-    }
+    // a {
+    //   text-decoration: none;
+    //   color: $colorWhite;
+    //   font-weight: 600;
+    //   display: inline-block;
+    //   padding: 5px 10px;
+    //   background: $green-sheen;
+    //   transition: background $t;
+    //   border-radius: $radius;
+    // }
+    // &:hover a {
+    //   background: darken($green-sheen, 10%);
+    // }
   }
-}
-.basket {
-  position: absolute;
-  right: 0;
-  display: inline-block;
-  top: 0;
-}
-
-.login {
-  .form {
-    margin: 0 auto;
-  }
-}
-
-.cms {
-  position: relative;
 }
 
 .intro {
   margin-bottom: 20px;
-}
-
-.kitten {
-  //   &__img {
-  //     background: $colorWhite;
-  //     padding: 15px;
-  //     border-radius: $radius;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //   }
-}
-
-.btn-logout {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.form {
-  margin-bottom: 30px;
-  &__item {
-    margin-bottom: 20px;
-  }
-}
-
-input {
-  border: none;
-  padding: 5px 10px 5px 0;
-  outline: none;
-  display: inline-block;
-  width: 100%;
-  border-bottom: 1px solid $green-sheen;
-  transition: border-color $t;
-  &:focus,
-  &:active {
-    border-color: $radical-pink;
-    background-color: $colorWhite;
-  }
-}
-
-label {
-  display: block;
-  text-align: left;
-  font-size: 12px;
-  color: $green-sheen;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  margin-bottom: 5px;
 }
