@@ -18,10 +18,11 @@ $gray: #a9a9a9;
 $t: 0.3s;
 $radius: 3px;
 .App {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  padding-top: 20px;
   background: $colorWhite;
-  padding: 15px;
+  //   padding: 15px;
+  margin: 0 auto;
   min-height: 100vh;
   box-shadow: 0 0 10px 5px rgba($gray, 0.5);
 }
@@ -35,32 +36,19 @@ $radius: 3px;
   margin-bottom: 20px;
 }
 
-.menu {
-  margin-bottom: 30px;
-  position: relative;
-  &__list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0 0 -20px -20px;
-  }
-  &__item {
-    margin: 0 0 20px 20px;
-    // a {
-    //   text-decoration: none;
-    //   color: $colorWhite;
-    //   font-weight: 600;
-    //   display: inline-block;
-    //   padding: 5px 10px;
-    //   background: $green-sheen;
-    //   transition: background $t;
-    //   border-radius: $radius;
-    // }
-    // &:hover a {
-    //   background: darken($green-sheen, 10%);
-    // }
-  }
-}
+// .menu {
+//   margin-bottom: 30px;
+//   position: relative;
+//   &__list {
+//     display: flex;
+//     justify-content: center;
+//     list-style: none;
+//     margin: 0 0 -20px -20px;
+//   }
+//   &__item {
+//     margin: 0 0 20px 20px;
+//   }
+// }
 
 .intro {
   margin-bottom: 20px;

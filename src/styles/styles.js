@@ -1,6 +1,32 @@
 import glamorous from "glamorous";
 import { NavLink } from "react-router-dom";
 
+export const globalVars = {
+  radius: 3,
+  radiusMd: 10,
+  radiusLg: 25,
+  transitionTime: 0.3,
+  breakpoints: {
+    phoneSm: 384,
+    phone: 576,
+    tablet: 768,
+    laptop: 992,
+    largeDevices: 1200,
+  },
+};
+
+export const shadows = {
+  boxShadowGray: "0 0 4px 1px rgba(169, 169, 169, 0.4)",
+};
+
+export const mediaQueries = {
+  phoneSm: `@media only screen and (max-width: ${globalVars.breakpoints.phoneSm}px)`,
+  phone: `@media only screen and (max-width: ${globalVars.breakpoints.phone}px)`,
+  tablet: `@media only screen and (max-width: ${globalVars.breakpoints.tablet}px)`,
+  laptop: `@media only screen and (max-width: ${globalVars.breakpoints.laptop}px)`,
+  largeDevices: `@media only screen and (max-width: ${globalVars.breakpoints.largeDevices}px)`,
+};
+
 export const colors = {
   celadonBlue: "hsla(198, 63%, 38%, 1)",
   greenSheen: "hsla(170, 40%, 60%, 1)",
@@ -12,19 +38,15 @@ export const colors = {
   black: "#000000",
 };
 
-export const shadows = {
-  boxShadowGray: "0 0 4px 1px rgba(169, 169, 169, 0.4)",
-};
-
-export const globalVars = {
-  radius: 3,
-  radiusMd: 10,
-  radiusLg: 25,
-  transitionTime: 0.3,
-};
-
 export const fontFamily = {
   fontFamily: `"Mukta", sans-serif`,
+};
+
+export const resetBtnStyles = {
+  outline: "none",
+  border: "none",
+  cursor: "pointer",
+  background: "none",
 };
 
 export const NavLinkDefault = glamorous(NavLink)({
@@ -53,6 +75,9 @@ export const NavLinkDefault = glamorous(NavLink)({
     ":hover": {
       color: colors.white,
     },
+  },
+  [mediaQueries.phone]: {
+    width: "100%",
   },
 });
 
@@ -187,13 +212,19 @@ export const FormItemDefault = glamorous.p({
   marginBottom: 20,
 });
 
-export const BasketBtn = glamorous.p({
+export const Logo = glamorous.div({
+  textAlign: "center",
+});
+
+export const BasketBtn = glamorous.button({
+  ...resetBtnStyles,
   position: "absolute",
-  right: 0,
+  right: 25,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  top: -12,
+  top: "50%",
+  transform: "translateY(-50%)",
   cursor: "pointer",
   border: `2px solid ${colors.greenSheen}`,
   borderRadius: "50%",
@@ -202,12 +233,8 @@ export const BasketBtn = glamorous.p({
   transition: `border-color ${globalVars.transitionTime}s, transform ${globalVars.transitionTime}s`,
   ":hover": {
     borderColor: colors.radicalPink,
-    transform: "scale(1.03)",
+    transform: "translateY(-50%) scale(1.05)",
   },
-});
-
-export const Logo = glamorous.div({
-  textAlign: "center",
 });
 
 export const BasketList = glamorous.div({
@@ -244,4 +271,59 @@ export const BasketItem = glamorous.li({
   fontWeight: "bold",
   gap: 15,
   alignItems: "center",
+});
+
+export const MenuListDefault = glamorous.ul({
+  display: "flex",
+  gap: 20,
+  alignItems: "center",
+  justifyContent: "center",
+  listStyle: "none",
+  [mediaQueries.phone]: {
+    gap: 0,
+    flexDirection: "column",
+  },
+});
+
+export const MenuItemDefault = glamorous.li({
+  [mediaQueries.phone]: {
+    borderBottom: `2px solid ${colors.white}`,
+    width: "100%",
+  },
+});
+
+export const MenuDefault = glamorous.div({
+  [mediaQueries.phone]: {
+    display: "none",
+  },
+});
+
+export const MenuMobile = glamorous.div({
+  display: "none",
+  position: "absolute",
+  width: "100%",
+  height: "100vh",
+  background: colors.greenSheen,
+  top: "100%",
+  [mediaQueries.phone]: {
+    display: "block",
+    transform: "translateX(-100%)",
+    transition: `all 0.5s`,
+    zIndex: 1,
+  },
+});
+
+export const ButtonToggle = glamorous.button({
+  ...resetBtnStyles,
+  display: "none",
+  [mediaQueries.phone]: {
+    display: "block",
+    padding: "7px 15px",
+  },
+});
+
+export const NavbarDefault = glamorous.nav({
+  position: "relative",
+  padding: "25px 0",
+  height: 94,
 });

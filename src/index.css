@@ -3,7 +3,7 @@ body {
   font-family: "Mukta", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: hsla(139, 36%, 78%, 1);
+  /* background: hsla(139, 36%, 78%, 1); */
 }
 
 /* Change the white to any color */

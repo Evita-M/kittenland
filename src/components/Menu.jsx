@@ -1,25 +1,70 @@
-import React from "react";
-import { NavLinkDefault } from "../styles/styles";
+import React, { useState } from "react";
+import { HamburgerSvg } from "../assets/svgComponents";
+import {
+  ButtonToggle,
+  MenuDefault,
+  MenuItemDefault,
+  MenuListDefault,
+  MenuMobile,
+  NavbarDefault,
+  NavLinkDefault,
+} from "../styles/styles";
 import BasketButton from "./BasketButton";
 
 const Menu = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
-    <>
-      <nav className="menu">
-        <ul className="menu__list">
-          <li className="menu__item">
+    <NavbarDefault>
+      <ButtonToggle onClick={() => setToggleMenu(!toggleMenu)}>
+        <HamburgerSvg boxSize={30} />
+      </ButtonToggle>
+      <MenuDefault className="menu">
+        <MenuListDefault className="menu__list">
+          <MenuItemDefault className="menu__item">
             <NavLinkDefault to="/">Home</NavLinkDefault>
-          </li>
-          <li className="menu__item">
+          </MenuItemDefault>
+          <MenuItemDefault className="menu__item">
             <NavLinkDefault to="/about">About</NavLinkDefault>
-          </li>
-          <li className="menu__item">
+          </MenuItemDefault>
+          <MenuItemDefault className="menu__item">
             <NavLinkDefault to="/cms">CMS</NavLinkDefault>
-          </li>
-        </ul>
-        <BasketButton />
-      </nav>
-    </>
+          </MenuItemDefault>
+        </MenuListDefault>
+      </MenuDefault>
+      <BasketButton />
+      <MenuMobile
+        className="submenu"
+        css={{ transform: toggleMenu && "translateX(0%) !important" }}
+      >
+        <MenuListDefault className="menu__list">
+          <MenuItemDefault className="menu__item">
+            <NavLinkDefault to="/">Home</NavLinkDefault>
+          </MenuItemDefault>
+          <MenuItemDefault className="menu__item">
+            <NavLinkDefault to="/about">About</NavLinkDefault>
+          </MenuItemDefault>
+          <MenuItemDefault className="menu__item">
+            <NavLinkDefault to="/cms">CMS</NavLinkDefault>
+          </MenuItemDefault>
+        </MenuListDefault>
+      </MenuMobile>
+      {/* {toggleMenu && (
+        <MenuDefault>
+          <MenuListDefault className="menu__list">
+            <MenuItemDefault className="menu__item">
+              <NavLinkDefault to="/">Home</NavLinkDefault>
+            </MenuItemDefault>
+            <MenuItemDefault className="menu__item">
+              <NavLinkDefault to="/about">About</NavLinkDefault>
+            </MenuItemDefault>
+            <MenuItemDefault className="menu__item">
+              <NavLinkDefault to="/cms">CMS</NavLinkDefault>
+            </MenuItemDefault>
+          </MenuListDefault>
+        </MenuDefault>
+      )} */}
+    </NavbarDefault>
   );
 };
 
