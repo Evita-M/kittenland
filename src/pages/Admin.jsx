@@ -3,10 +3,10 @@ import AddKitten from "../components/AddKitten";
 import Kittens from "../components/Kittens";
 import { AuthContext } from "../context/AuthContext";
 import { StorageContext } from "../context/StorageContext";
-import { ButtonDefault, DivGrid } from "../styles/styles";
+import { ButtonDefault, DivGrid, TitleDefault } from "../styles/styles";
 import { Div } from "glamorous";
 
-const CMS = () => {
+const Admin = () => {
   const { logout, user } = useContext(AuthContext);
   const { clearStorage, data } = useContext(StorageContext);
   const [showForm, setShowForm] = useState(false);
@@ -24,15 +24,11 @@ const CMS = () => {
   };
 
   return (
-    <Div position="relative">
-      <h2 className="subtitle">CMS</h2>
-      <ButtonDefault
-        css={{ position: "absolute", top: 0, right: 0 }}
-        onClick={logout}
-      >
-        Logout
-      </ButtonDefault>
-
+    <>
+      <Div textAlign="center">
+        <TitleDefault css={{ marginBottom: 0 }}>Admin</TitleDefault>
+        <ButtonDefault onClick={logout}>Logout</ButtonDefault>
+      </Div>
       <p className="intro">
         Hello <strong>{user.username}</strong> , you are logged in. Here are
         your kittens to sell.
@@ -55,8 +51,8 @@ const CMS = () => {
       ) : (
         <Kittens data={data} isAdmin={true} />
       )}
-    </Div>
+    </>
   );
 };
 
-export default CMS;
+export default Admin;

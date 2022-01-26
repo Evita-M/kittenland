@@ -67,7 +67,9 @@ const BasketContent = ({ setShowBasket }) => {
                     />
                   </Span>
                   <Span flex="1 0 auto">{item.name}</Span>
-                  <Span color={colors.radicalPink}>{item.price} EUR</Span>
+                  <Span color={colors.radicalPink}>
+                    <strong>{item.price} €</strong>
+                  </Span>
 
                   <Button
                     css={removeBtnStyles}
@@ -86,7 +88,7 @@ const BasketContent = ({ setShowBasket }) => {
               ))}
             </ul>
             <P marginTop={20} marginBottom={20} textAlign="right">
-              Total: {getTotalPrice()} EUR
+              <strong>Total: {getTotalPrice()} €</strong>
             </P>
             <DivGrid>
               <LinkDefault to="/checkout">Checkout</LinkDefault>

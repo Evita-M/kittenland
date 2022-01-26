@@ -29,13 +29,13 @@ export const mediaQueries = {
 
 export const colors = {
   celadonBlue: "hsla(198, 63%, 38%, 1)",
-  greenSheen: "hsla(170, 40%, 60%, 1)",
-  turquoiseGreen: "hsla(139, 50%, 70%, 1)",
+  turquoiseGreen: "hsla(174, 100%, 41%, 1)",
+  green: "hsla(131, 76%, 63%)",
   cream: "hsla(71, 100%, 87%, 1)",
   radicalPink: "hsla(344, 100%, 54%, 1)",
   white: "#ffffff",
   gray: "rgb(169, 169, 169)",
-  black: "#000000",
+  black: "hsla(131, 0%, 10%)",
 };
 
 export const fontFamily = {
@@ -59,14 +59,14 @@ export const NavLinkDefault = glamorous(NavLink)({
   color: colors.white,
   fontSize: 15,
   borderRadius: globalVars.radius,
-  border: `2px solid ${colors.greenSheen}`,
+  border: `2px solid ${colors.turquoiseGreen}`,
   padding: "7px 10px",
   minWidth: 100,
   transition: "background 0.3s, color 0.3s",
-  background: colors.greenSheen,
+  background: colors.turquoiseGreen,
   ":hover": {
     background: colors.white,
-    color: colors.greenSheen,
+    color: colors.turquoiseGreen,
   },
   ":disabled": {
     background: colors.gray,
@@ -88,17 +88,17 @@ export const LinkDefault = glamorous(NavLink)({
   textAlign: "center",
   textDecoration: "none",
   fontWeight: 600,
-  border: `2px solid ${colors.turquoiseGreen}`,
+  border: `2px solid ${colors.black}`,
   color: colors.white,
   fontSize: 15,
   borderRadius: globalVars.radius,
   padding: "7px 15px",
   minWidth: 100,
   transition: "background 0.3s, color 0.3s",
-  background: colors.turquoiseGreen,
+  background: colors.black,
   ":hover": {
     background: colors.white,
-    color: colors.turquoiseGreen,
+    color: colors.black,
   },
   ":disabled": {
     background: colors.gray,
@@ -165,11 +165,11 @@ export const InputDefault = glamorous.input({
   borderBottom: `1px solid ${colors.radicalPink}`,
   transition: `border-color ${globalVars.transitionTime}s`,
   ":focus": {
-    borderColor: colors.greenSheen,
+    borderColor: colors.turquoiseGreen,
     backgroundColor: colors.white,
   },
   ":active": {
-    borderColor: colors.greenSheen,
+    borderColor: colors.turquoiseGreen,
     backgroundColor: colors.white,
   },
 });
@@ -184,10 +184,10 @@ export const TextareaDefault = glamorous.textarea({
   outline: "none",
   fontFamily: `"Mukta", sans-serif`,
   ":active": {
-    borderColor: colors.greenSheen,
+    borderColor: colors.turquoiseGreen,
   },
   ":focus": {
-    borderColor: colors.greenSheen,
+    borderColor: colors.turquoiseGreen,
   },
 });
 
@@ -226,7 +226,7 @@ export const BasketBtn = glamorous.button({
   top: "50%",
   transform: "translateY(-50%)",
   cursor: "pointer",
-  border: `2px solid ${colors.greenSheen}`,
+  border: `2px solid ${colors.turquoiseGreen}`,
   borderRadius: "50%",
   width: 55,
   height: 55,
@@ -240,35 +240,39 @@ export const BasketBtn = glamorous.button({
 export const BasketList = glamorous.div({
   borderRadius: globalVars.radius,
   boxShadow: shadows.boxShadowGray,
-  maxWidth: 360,
-  background: colors.greenSheen,
+  maxWidth: 380,
+  background: colors.turquoiseGreen,
   padding: 15,
   color: colors.white,
   position: "absolute",
   right: 0,
-  top: 67,
+  top: 93,
   zIndex: 1,
   fontSize: 18,
   "::before": {
     content: `''`,
     position: "absolute",
     top: -15,
-    right: 15,
+    right: 39,
     width: 0,
     height: 0,
     borderStyle: "solid",
     borderWidth: "0 12px 15px 12px",
-    borderColor: `transparent transparent ${colors.greenSheen} transparent`,
+    borderColor: `transparent transparent ${colors.turquoiseGreen} transparent`,
+  },
+  [mediaQueries.phone]: {
+    width: "100%",
   },
 });
 
 export const BasketItem = glamorous.li({
   background: colors.white,
-  marginBottom: 1,
+  marginBottom: 3,
   borderRadius: globalVars.radius,
-  padding: "10px 20px",
+  padding: "5px 10px",
   display: "flex",
-  fontWeight: "bold",
+  fontSize: 16,
+  color: colors.black,
   gap: 15,
   alignItems: "center",
 });
@@ -303,7 +307,7 @@ export const MenuMobile = glamorous.div({
   position: "absolute",
   width: "100%",
   height: "100vh",
-  background: colors.greenSheen,
+  background: colors.turquoiseGreen,
   top: "100%",
   [mediaQueries.phone]: {
     display: "block",
@@ -326,4 +330,23 @@ export const NavbarDefault = glamorous.nav({
   position: "relative",
   padding: "25px 0",
   height: 94,
+  boxShadow: "0 4px 15px -15px rgba(0,0,0,0.9)",
+});
+
+export const TitleDefault = glamorous.div({
+  textAlign: "center",
+  marginBottom: "40px",
+  fontSize: "35px",
+  fontWeight: "bold",
+  letterSpacing: "0.5px",
+  ":first-letter": {
+    color: colors.turquoiseGreen,
+    fontSize: "41px",
+  },
+});
+
+export const MainContent = glamorous.section({
+  //   background: `linear-gradient(180deg,  #f9f9f9 50%,  ${colors.cream}90%)`,
+  height: "100vh",
+  padding: "30px",
 });

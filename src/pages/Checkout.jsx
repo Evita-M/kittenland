@@ -1,6 +1,7 @@
 import { Button, Img } from "glamorous";
 import { useContext } from "react";
 import { StorageContext } from "../context/StorageContext";
+import { TitleDefault } from "../styles/styles";
 
 const Checkout = () => {
   const { getKittensInBasket, removeKittens } = useContext(StorageContext);
@@ -13,7 +14,7 @@ const Checkout = () => {
 
   return (
     <div>
-      <h2 className="subtitle">Checkout</h2>
+      <TitleDefault>Checkout</TitleDefault>
       <h3>Kittens in your basket</h3>
       <ul>
         {kittens.map((item) => (

@@ -3,16 +3,16 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import CMS from "./pages/CMS";
 import Menu from "./components/Menu";
 import PrivateRoute from "./routes/PrivateRoute";
 import Login from "./pages/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import logo from "./assets/logo-kittenland.png";
-import { colors, Logo } from "./styles/styles";
+import { Logo, MainContent } from "./styles/styles";
 import Checkout from "./pages/Checkout";
 import { Div } from "glamorous";
+import Admin from "./pages/Admin";
 
 function App() {
   const { isLogged } = useContext(AuthContext);
@@ -23,16 +23,16 @@ function App() {
         <img src={logo} alt="" width={150} height={150} />
       </Logo>
       <Menu />
-      <Div background={colors.cream} padding={15} height="100%">
+      <MainContent>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route element={<PrivateRoute />}>
-            <Route path="cms" element={<CMS />} />
+            <Route path="admin" element={<Admin />} />
           </Route>
           <Route
             path="login"
-            element={isLogged ? <Navigate to="/cms" /> : <Login />}
+            element={isLogged ? <Navigate to="/admin" /> : <Login />}
           />
           <Route path="checkout" element={<Checkout />} />
           <Route
@@ -44,7 +44,7 @@ function App() {
             }
           />
         </Routes>
-      </Div>
+      </MainContent>
     </Div>
   );
 }

@@ -28,7 +28,7 @@ const Menu = () => {
             <NavLinkDefault to="/about">About</NavLinkDefault>
           </MenuItemDefault>
           <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/cms">CMS</NavLinkDefault>
+            <NavLinkDefault to="/admin">Admin</NavLinkDefault>
           </MenuItemDefault>
         </MenuListDefault>
       </MenuDefault>
@@ -45,7 +45,7 @@ const Menu = () => {
             <NavLinkDefault to="/about">About</NavLinkDefault>
           </MenuItemDefault>
           <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/cms">CMS</NavLinkDefault>
+            <NavLinkDefault to="/admin">Admin</NavLinkDefault>
           </MenuItemDefault>
         </MenuListDefault>
       </MenuMobile>

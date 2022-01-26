@@ -1,9 +1,10 @@
 import React from "react";
+import { TitleDefault } from "../styles/styles";
 
 const About = () => {
   return (
     <div>
-      <h2 className="subtitle">About</h2>
+      <TitleDefault>About</TitleDefault>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus illo ut
         suscipit eligendi officiis, velit voluptatibus beatae non consectetur
