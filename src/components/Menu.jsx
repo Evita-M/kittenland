@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HamburgerSvg } from "../assets/svgComponents";
+
 import {
   ButtonToggle,
   MenuDefault,
@@ -10,6 +11,7 @@ import {
   NavLinkDefault,
 } from "../styles/styles";
 import BasketButton from "./BasketButton";
+import ProfileButton from "./ProfileButton";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -19,6 +21,7 @@ const Menu = () => {
       <ButtonToggle onClick={() => setToggleMenu(!toggleMenu)}>
         <HamburgerSvg boxSize={30} />
       </ButtonToggle>
+      <ProfileButton />
       <MenuDefault className="menu">
         <MenuListDefault className="menu__list">
           <MenuItemDefault className="menu__item">

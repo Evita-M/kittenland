@@ -145,6 +145,8 @@ export const DivGrid = glamorous.div({
     display: "grid",
     gridGap: 15,
     gridTemplateColumns: "repeat(2, 1fr)",
+    maxWidth: "400px",
+    margin: "0 auto",
   },
 });
 
@@ -202,10 +204,11 @@ export const LabelDefault = glamorous.label({
 });
 
 export const FormDefault = glamorous.form({
-  margin: "30px 0",
   border: `1px solid ${colors.radicalPink}`,
   borderRadius: globalVars.radiusMd,
   padding: "20px",
+  margin: "30px auto 0",
+  maxWidth: "400px",
 });
 
 export const FormItemDefault = glamorous.p({
@@ -220,6 +223,27 @@ export const BasketBtn = glamorous.button({
   ...resetBtnStyles,
   position: "absolute",
   right: 25,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  top: "50%",
+  transform: "translateY(-50%)",
+  cursor: "pointer",
+  border: `2px solid ${colors.turquoiseGreen}`,
+  borderRadius: "50%",
+  width: 55,
+  height: 55,
+  transition: `border-color ${globalVars.transitionTime}s, transform ${globalVars.transitionTime}s`,
+  ":hover": {
+    borderColor: colors.radicalPink,
+    transform: "translateY(-50%) scale(1.05)",
+  },
+});
+
+export const ProfileBtn = glamorous.button({
+  ...resetBtnStyles,
+  position: "absolute",
+  left: 25,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -347,6 +371,40 @@ export const TitleDefault = glamorous.div({
 
 export const MainContent = glamorous.section({
   //   background: `linear-gradient(180deg,  #f9f9f9 50%,  ${colors.cream}90%)`,
-  height: "100vh",
+
   padding: "30px",
+});
+
+export const Intro = glamorous.p({
+  textAlign: "center",
+  marginBottom: "20px",
+  fontSize: 18,
+});
+
+export const UserMenuDefault = glamorous.div({
+  borderRadius: globalVars.radius,
+  boxShadow: shadows.boxShadowGray,
+  maxWidth: 380,
+  background: colors.turquoiseGreen,
+  padding: 15,
+  color: colors.white,
+  position: "absolute",
+  left: 0,
+  top: 93,
+  zIndex: 1,
+  fontSize: 18,
+  "::before": {
+    content: `''`,
+    position: "absolute",
+    top: -15,
+    left: 39,
+    width: 0,
+    height: 0,
+    borderStyle: "solid",
+    borderWidth: "0 12px 15px 12px",
+    borderColor: `transparent transparent ${colors.turquoiseGreen} transparent`,
+  },
+  [mediaQueries.phone]: {
+    width: "100%",
+  },
 });

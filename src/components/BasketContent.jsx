@@ -1,6 +1,7 @@
-import { Button, Div, Img, P, Span, Svg } from "glamorous";
+import { Button, Img, P, Span, Svg } from "glamorous";
 import { useContext } from "react";
 import { StorageContext } from "../context/StorageContext";
+
 import {
   BasketItem,
   BasketList,
@@ -35,14 +36,6 @@ const BasketContent = ({ setShowBasket }) => {
 
   return (
     <>
-      <Div
-        position="fixed"
-        inset={0}
-        content=""
-        onClick={() => setShowBasket(false)}
-      >
-        {" "}
-      </Div>
       <BasketList>
         {data.length > 0 ? (
           <>

@@ -25,7 +25,7 @@ const Login = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     login(user, password);
-    navigate("/cms");
+    navigate("/admin");
   };
 
   return (

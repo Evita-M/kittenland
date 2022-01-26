@@ -23,11 +23,29 @@ $radius: 3px;
   background: $colorWhite;
 
   margin: 0 auto;
-  min-height: 100vh;
+  //   min-height: 100vh;
   box-shadow: 0 0 10px 5px rgba($gray, 0.5);
 }
 
 .subtitle {
   text-transform: uppercase;
   margin-bottom: 20px;
+}
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alert-exit {
+  opacity: 1;
+}
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
