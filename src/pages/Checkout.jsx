@@ -89,7 +89,7 @@ const Checkout = () => {
             <tr>
               <td></td>
               <td>Total</td>
-              <td>{getTotalPrice()}&nbsp;EUR</td>
+              <td>{getTotalPrice()}&nbsp; EUR</td>
               <td></td>
             </tr>
           </tfoot>
