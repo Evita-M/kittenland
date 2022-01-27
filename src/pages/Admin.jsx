@@ -26,7 +26,7 @@ const Admin = () => {
   return (
     <>
       <Div textAlign="center">
-        <TitleDefault css={{ marginBottom: 0 }}>Admin</TitleDefault>
+        <TitleDefault>Admin</TitleDefault>
       </Div>
       <Div textAlign="center">
         <Intro>
@@ -35,7 +35,7 @@ const Admin = () => {
         </Intro>
       </Div>
 
-      <DivGrid>
+      <DivGrid css={{ paddingBottom: "20px" }}>
         <ButtonDefault onClick={toggleShowForm} disabled={showForm}>
           Add kitten
         </ButtonDefault>
@@ -48,7 +48,7 @@ const Admin = () => {
       {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
 
       {checkEmptyData() ? (
-        <p>You have no kittens.</p>
+        <Intro>You have no kittens.</Intro>
       ) : (
         <Kittens data={data} isAdmin={true} />
       )}

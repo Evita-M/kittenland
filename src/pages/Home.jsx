@@ -2,7 +2,7 @@ import { Div } from "glamorous";
 import React, { useContext } from "react";
 import Kittens from "../components/Kittens";
 import { StorageContext } from "../context/StorageContext";
-import { TitleDefault } from "../styles/styles";
+import { Intro, TitleDefault } from "../styles/styles";
 
 const Home = () => {
   const { data } = useContext(StorageContext);
@@ -16,7 +16,7 @@ const Home = () => {
           isAdmin={false}
         />
       ) : (
-        <p>No kittens to buy</p>
+        <Intro>No kittens to buy</Intro>
       )}
     </Div>
   );

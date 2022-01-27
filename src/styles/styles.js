@@ -32,7 +32,8 @@ export const colors = {
   turquoiseGreen: "hsla(174, 100%, 41%, 1)",
   green: "hsla(131, 76%, 63%)",
   cream: "hsla(71, 100%, 87%, 1)",
-  radicalPink: "hsla(344, 100%, 54%, 1)",
+  //   radicalPink: "hsla(344, 100%, 54%, 1)",
+  radicalPink: "hsla(338, 83%, 62%, 1)",
   white: "#ffffff",
   gray: "rgb(169, 169, 169)",
   black: "hsla(131, 0%, 10%)",
@@ -48,6 +49,14 @@ export const resetBtnStyles = {
   cursor: "pointer",
   background: "none",
 };
+
+export const AppDefault = glamorous.div({
+  maxWidth: "1200px",
+  background: colors.white,
+  margin: "0 auto",
+  minHeight: "100vh",
+  boxShadow: `0 0 10px 5px rgba(${colors.gray}, 0.5)`,
+});
 
 export const NavLinkDefault = glamorous(NavLink)({
   display: "inline-block",
@@ -145,7 +154,7 @@ export const DivGrid = glamorous.div({
     display: "grid",
     gridGap: 15,
     gridTemplateColumns: "repeat(2, 1fr)",
-    maxWidth: "400px",
+    maxWidth: "450px",
     margin: "0 auto",
   },
 });
@@ -207,7 +216,7 @@ export const FormDefault = glamorous.form({
   border: `1px solid ${colors.radicalPink}`,
   borderRadius: globalVars.radiusMd,
   padding: "20px",
-  margin: "30px auto 0",
+  margin: "0 auto",
   maxWidth: "400px",
 });
 
@@ -222,7 +231,7 @@ export const Logo = glamorous.div({
 export const BasketBtn = glamorous.button({
   ...resetBtnStyles,
   position: "absolute",
-  right: 25,
+  right: 20,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -243,7 +252,7 @@ export const BasketBtn = glamorous.button({
 export const ProfileBtn = glamorous.button({
   ...resetBtnStyles,
   position: "absolute",
-  left: 25,
+  left: 20,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -277,7 +286,7 @@ export const BasketList = glamorous.div({
     content: `''`,
     position: "absolute",
     top: -15,
-    right: 39,
+    right: 35,
     width: 0,
     height: 0,
     borderStyle: "solid",
@@ -333,9 +342,10 @@ export const MenuMobile = glamorous.div({
   height: "100vh",
   background: colors.turquoiseGreen,
   top: "100%",
+  left: 0,
   [mediaQueries.phone]: {
     display: "block",
-    transform: "translateX(-100%)",
+    transform: "translateX(-120%)",
     transition: `all 0.5s`,
     zIndex: 1,
   },
@@ -346,13 +356,13 @@ export const ButtonToggle = glamorous.button({
   display: "none",
   [mediaQueries.phone]: {
     display: "block",
-    padding: "7px 15px",
+    padding: "7px 0",
   },
 });
 
 export const NavbarDefault = glamorous.nav({
   position: "relative",
-  padding: "25px 0",
+  padding: "25px 10px",
   height: 94,
   boxShadow: "0 4px 15px -15px rgba(0,0,0,0.9)",
 });
@@ -371,14 +381,15 @@ export const TitleDefault = glamorous.div({
 
 export const MainContent = glamorous.section({
   //   background: `linear-gradient(180deg,  #f9f9f9 50%,  ${colors.cream}90%)`,
-
-  padding: "30px",
+  padding: "0 20px",
+  textAlign: "center",
+  height: "100vh",
 });
 
 export const Intro = glamorous.p({
-  textAlign: "center",
-  marginBottom: "20px",
+  margin: "0 auto 20px",
   fontSize: 18,
+  maxWidth: "600px",
 });
 
 export const UserMenuDefault = glamorous.div({
@@ -397,7 +408,7 @@ export const UserMenuDefault = glamorous.div({
     content: `''`,
     position: "absolute",
     top: -15,
-    left: 39,
+    left: 35,
     width: 0,
     height: 0,
     borderStyle: "solid",
@@ -407,4 +418,18 @@ export const UserMenuDefault = glamorous.div({
   [mediaQueries.phone]: {
     width: "100%",
   },
+});
+
+export const ModalContainer = glamorous.div({
+  position: "fixed",
+  inset: 0,
+  content: "",
+});
+
+export const CheckoutTable = glamorous.div({
+  maxWidth: "450px",
+  padding: "20px 40px",
+  margin: "0 auto",
+  border: "2px solid pink",
+  borderRadius: "3px",
 });

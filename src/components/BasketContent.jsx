@@ -9,6 +9,7 @@ import {
   LinkDefault,
   colors,
   DivGrid,
+  ModalContainer,
 } from "../styles/styles";
 
 const BasketContent = ({ setShowBasket }) => {
@@ -36,6 +37,7 @@ const BasketContent = ({ setShowBasket }) => {
 
   return (
     <>
+      <ModalContainer onClick={() => setShowBasket(false)} />
       <BasketList>
         {data.length > 0 ? (
           <>

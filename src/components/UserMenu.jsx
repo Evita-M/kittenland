@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { ButtonDefault, LinkDefault, UserMenuDefault } from "../styles/styles";
+import {
+  ButtonDefault,
+  LinkDefault,
+  ModalContainer,
+  UserMenuDefault,
+} from "../styles/styles";
 
 const UserMenu = ({ setShowUserMenu }) => {
   const { isLogged, logout } = useContext(AuthContext);
@@ -12,6 +17,7 @@ const UserMenu = ({ setShowUserMenu }) => {
 
   return (
     <>
+      <ModalContainer onClick={() => setShowUserMenu(false)} />
       <UserMenuDefault>
         {isLogged ? (
           <ButtonDefault onClick={handleLogout}>Logout</ButtonDefault>

@@ -7,45 +7,18 @@
   -moz-box-sizing: border-box;
 }
 
-$celadon-blue: hsla(198, 63%, 38%, 1);
-$green-sheen: hsla(170, 40%, 60%, 1);
-$turquoise-green: hsla(139, 36%, 78%, 1);
-$cream: hsla(71, 100%, 87%, 1);
-$radical-pink: hsla(344, 100%, 54%, 1);
-$colorWhite: #ffffff;
-$gray: #a9a9a9;
-
-$t: 0.3s;
-$radius: 3px;
-.App {
-  max-width: 1200px;
-  padding-top: 20px;
-  background: $colorWhite;
-
-  margin: 0 auto;
-  //   min-height: 100vh;
-  box-shadow: 0 0 10px 5px rgba($gray, 0.5);
+body {
+  position: relative;
+  min-height: 100vh;
+  min-width: 320px;
+  padding: 20px;
+  background: hsla(174, 100%, 41%, 0.5);
 }
 
-.subtitle {
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.alert-enter {
-  opacity: 0;
-  transform: scale(0.9);
-}
-.alert-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 300ms;
-}
-.alert-exit {
-  opacity: 1;
-}
-.alert-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
+table {
+  clear: both;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  width: 100%;
 }

@@ -42,7 +42,7 @@ const AddKitten = ({ toggleShowForm }) => {
 
   return (
     <>
-      <FormDefault onSubmit={handleOnSubmit}>
+      <FormDefault onSubmit={handleOnSubmit} css={{ marginBottom: 20 }}>
         <FormItemDefault>
           <LabelDefault htmlFor="name">Name:</LabelDefault>
           <InputDefault
