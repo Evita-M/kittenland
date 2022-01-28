@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
-import { BasketBtn, colors } from "../styles/styles";
 import { Span } from "glamorous";
 import BasketContent from "./BasketContent";
-import { BasketSvg } from "../assets/svgComponents";
+import { BasketSvg } from "./SvgLib";
+import { ButtonNav } from "../styles/buttons";
+import { colors } from "../styles/variables";
 
 const BasketButton = () => {
   const { basketCount } = useContext(StorageContext);
@@ -29,10 +30,10 @@ const BasketButton = () => {
 
   return (
     <>
-      <BasketBtn onClick={() => setShowBasket(!showBasket)}>
+      <ButtonNav basket onClick={() => setShowBasket(!showBasket)}>
         <BasketSvg boxSize={21} />
         <Span css={counterStyles}>{basketCount}</Span>
-      </BasketBtn>
+      </ButtonNav>
 
       {showBasket && <BasketContent setShowBasket={setShowBasket} />}
     </>

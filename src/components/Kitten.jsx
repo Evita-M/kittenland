@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { StorageContext } from "../context/StorageContext";
-import {
-  ButtonDefault,
-  ArticleKitten,
-  colors,
-  globalVars,
-} from "../styles/styles";
 import { Div, Img, H3, P } from "glamorous";
+import { ArticleKitten } from "../styles/styles";
+import { ButtonDefault } from "../styles/buttons";
+import { colors, global } from "../styles/variables";
 
 const Kitten = ({ item, isAdmin }) => {
   const { removeKitten, updateBasketStatus } = useContext(StorageContext);
@@ -29,7 +26,7 @@ const Kitten = ({ item, isAdmin }) => {
         background={colors.white}
         minHeight={250}
         padding="20px 10px 10px"
-        borderRadius={`0 ${globalVars.radiusLg}px ${globalVars.radius}px ${globalVars.radius}px`}
+        borderRadius={`0 ${global.radiusLg}px ${global.radius}px ${global.radius}px`}
       >
         <Div>
           <H3

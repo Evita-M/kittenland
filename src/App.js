@@ -9,21 +9,22 @@ import Login from "./pages/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import logo from "./assets/logo-kittenland.png";
-import { AppDefault, Logo, MainContent } from "./styles/styles";
 import Checkout from "./pages/Checkout";
 import Admin from "./pages/Admin";
+import { Logo } from "./styles/styles";
+import { ContainerApp, ContainerMain } from "./styles/layout";
 
 function App() {
   const { isLogged } = useContext(AuthContext);
 
   return (
     <>
-      <AppDefault>
+      <ContainerApp>
         <Logo>
           <img src={logo} alt="" width={150} height={150} />
         </Logo>
         <Menu />
-        <MainContent>
+        <ContainerMain>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="about" element={<About />} />
@@ -44,8 +45,8 @@ function App() {
               }
             />
           </Routes>
-        </MainContent>
-      </AppDefault>
+        </ContainerMain>
+      </ContainerApp>
     </>
   );
 }

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { ProfileBtn } from "../styles/styles";
-import { ProfileSvg } from "../assets/svgComponents";
+import { ProfileSvg } from "./SvgLib";
 import UserMenu from "./UserMenu";
+import { ButtonNav } from "../styles/buttons";
 
-const ProfileButton = () => {
+const Profile = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
     <>
-      <ProfileBtn onClick={() => setShowUserMenu(!showUserMenu)}>
+      <ButtonNav profile onClick={() => setShowUserMenu(!showUserMenu)}>
         <ProfileSvg boxSize={21} />
-      </ProfileBtn>
+      </ButtonNav>
 
       {showUserMenu && <UserMenu setShowUserMenu={setShowUserMenu} />}
     </>
   );
 };
 
-export default ProfileButton;
+export default Profile;

@@ -2,14 +2,16 @@ import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
 import { v4 as uuidv4 } from "uuid";
 import {
-  ButtonDefault,
-  DivGrid,
   InputDefault,
   LabelDefault,
   TextareaDefault,
   FormDefault,
   FormItemDefault,
 } from "../styles/styles";
+
+import { ButtonDefault } from "../styles/buttons";
+
+import { ContainerGrid } from "../styles/layout";
 
 const AddKitten = ({ toggleShowForm }) => {
   const [name, setName] = useState("");
@@ -101,12 +103,14 @@ const AddKitten = ({ toggleShowForm }) => {
             required
           />
         </FormItemDefault>
-        <DivGrid>
-          <ButtonDefault type="submit">Add</ButtonDefault>
-          <ButtonDefault type="button" onClick={toggleShowForm}>
+        <ContainerGrid>
+          <ButtonDefault success type="submit">
+            Add
+          </ButtonDefault>
+          <ButtonDefault test="40" type="button" onClick={toggleShowForm}>
             Close
           </ButtonDefault>
-        </DivGrid>
+        </ContainerGrid>
       </FormDefault>
     </>
   );

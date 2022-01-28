@@ -3,12 +3,13 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import {
-  ButtonDefault,
   FormDefault,
   FormItemDefault,
   InputDefault,
   LabelDefault,
 } from "../styles/styles";
+
+import { ButtonDefault } from "../styles/buttons";
 
 const Login = () => {
   const { login } = useContext(AuthContext);

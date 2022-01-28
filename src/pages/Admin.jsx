@@ -3,8 +3,10 @@ import AddKitten from "../components/AddKitten";
 import Kittens from "../components/Kittens";
 import { AuthContext } from "../context/AuthContext";
 import { StorageContext } from "../context/StorageContext";
-import { ButtonDefault, DivGrid, Intro, TitleDefault } from "../styles/styles";
 import { Div } from "glamorous";
+import { Intro, TitleDefault } from "../styles/styles";
+import { ContainerGrid } from "../styles/layout";
+import { ButtonDefault } from "../styles/buttons";
 
 const Admin = () => {
   const { user } = useContext(AuthContext);
@@ -35,7 +37,7 @@ const Admin = () => {
         </Intro>
       </Div>
 
-      <DivGrid css={{ paddingBottom: "20px" }}>
+      <ContainerGrid css={{ paddingBottom: "20px" }}>
         <ButtonDefault onClick={toggleShowForm} disabled={showForm}>
           Add kitten
         </ButtonDefault>
@@ -43,7 +45,7 @@ const Admin = () => {
         <ButtonDefault onClick={clearStorage} disabled={checkEmptyData()}>
           Clear kittens
         </ButtonDefault>
-      </DivGrid>
+      </ContainerGrid>
 
       {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
 

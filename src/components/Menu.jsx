@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { HamburgerSvg } from "../assets/svgComponents";
-
+import { HamburgerSvg } from "./SvgLib";
+import BasketButton from "./Basket";
+import ProfileButton from "./Profile";
 import {
-  ButtonToggle,
   MenuDefault,
   MenuItemDefault,
   MenuListDefault,
   MenuMobile,
   NavbarDefault,
-  NavLinkDefault,
 } from "../styles/styles";
-import BasketButton from "./BasketButton";
-import ProfileButton from "./ProfileButton";
+
+import { ButtonToggle, NavLinkDefault } from "../styles/buttons";
+import { ContainerModal } from "../styles/layout";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -42,31 +42,28 @@ const Menu = () => {
       >
         <MenuListDefault className="menu__list">
           <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/">Home</NavLinkDefault>
+            <NavLinkDefault onClick={() => setToggleMenu(!toggleMenu)} to="/">
+              Home
+            </NavLinkDefault>
           </MenuItemDefault>
           <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/about">About</NavLinkDefault>
+            <NavLinkDefault
+              onClick={() => setToggleMenu(!toggleMenu)}
+              to="/about"
+            >
+              About
+            </NavLinkDefault>
           </MenuItemDefault>
           <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/admin">Admin</NavLinkDefault>
+            <NavLinkDefault
+              onClick={() => setToggleMenu(!toggleMenu)}
+              to="/admin"
+            >
+              Admin
+            </NavLinkDefault>
           </MenuItemDefault>
         </MenuListDefault>
       </MenuMobile>
-      {/* {toggleMenu && (
-        <MenuDefault>
-          <MenuListDefault className="menu__list">
-            <MenuItemDefault className="menu__item">
-              <NavLinkDefault to="/">Home</NavLinkDefault>
-            </MenuItemDefault>
-            <MenuItemDefault className="menu__item">
-              <NavLinkDefault to="/about">About</NavLinkDefault>
-            </MenuItemDefault>
-            <MenuItemDefault className="menu__item">
-              <NavLinkDefault to="/cms">CMS</NavLinkDefault>
-            </MenuItemDefault>
-          </MenuListDefault>
-        </MenuDefault>
-      )} */}
     </NavbarDefault>
   );
 };

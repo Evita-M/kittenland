@@ -1,168 +1,11 @@
 import glamorous from "glamorous";
+import { global, colors, mediaQueries, shadows } from "./variables";
 import { NavLink } from "react-router-dom";
-
-export const globalVars = {
-  radius: 3,
-  radiusMd: 10,
-  radiusLg: 25,
-  transitionTime: 0.3,
-  breakpoints: {
-    phoneSm: 384,
-    phone: 576,
-    tablet: 768,
-    laptop: 992,
-    largeDevices: 1200,
-  },
-};
-
-export const shadows = {
-  boxShadowGray: "0 0 4px 1px rgba(169, 169, 169, 0.4)",
-};
-
-export const mediaQueries = {
-  phoneSm: `@media only screen and (max-width: ${globalVars.breakpoints.phoneSm}px)`,
-  phone: `@media only screen and (max-width: ${globalVars.breakpoints.phone}px)`,
-  tablet: `@media only screen and (max-width: ${globalVars.breakpoints.tablet}px)`,
-  laptop: `@media only screen and (max-width: ${globalVars.breakpoints.laptop}px)`,
-  largeDevices: `@media only screen and (max-width: ${globalVars.breakpoints.largeDevices}px)`,
-};
-
-export const colors = {
-  celadonBlue: "hsla(198, 63%, 38%, 1)",
-  turquoiseGreen: "hsla(174, 100%, 41%, 1)",
-  green: "hsla(131, 76%, 63%)",
-  cream: "hsla(71, 100%, 87%, 1)",
-  //   radicalPink: "hsla(344, 100%, 54%, 1)",
-  radicalPink: "hsla(338, 83%, 62%, 1)",
-  white: "#ffffff",
-  gray: "rgb(169, 169, 169)",
-  black: "hsla(131, 0%, 10%)",
-};
-
-export const fontFamily = {
-  fontFamily: `"Mukta", sans-serif`,
-};
-
-export const resetBtnStyles = {
-  outline: "none",
-  border: "none",
-  cursor: "pointer",
-  background: "none",
-};
-
-export const AppDefault = glamorous.div({
-  maxWidth: "1200px",
-  background: colors.white,
-  margin: "0 auto",
-  minHeight: "100vh",
-  boxShadow: `0 0 10px 5px rgba(${colors.gray}, 0.5)`,
-});
-
-export const NavLinkDefault = glamorous(NavLink)({
-  display: "inline-block",
-  letterSpacing: "1",
-  fontFamily: fontFamily.fontFamily,
-  textAlign: "center",
-  textDecoration: "none",
-  fontWeight: 600,
-  color: colors.white,
-  fontSize: 15,
-  borderRadius: globalVars.radius,
-  border: `2px solid ${colors.turquoiseGreen}`,
-  padding: "7px 10px",
-  minWidth: 100,
-  transition: "background 0.3s, color 0.3s",
-  background: colors.turquoiseGreen,
-  ":hover": {
-    background: colors.white,
-    color: colors.turquoiseGreen,
-  },
-  ":disabled": {
-    background: colors.gray,
-    borderColor: colors.gray,
-    cursor: "not-allowed",
-    ":hover": {
-      color: colors.white,
-    },
-  },
-  [mediaQueries.phone]: {
-    width: "100%",
-  },
-});
-
-export const LinkDefault = glamorous(NavLink)({
-  display: "inline-block",
-  letterSpacing: "1",
-  fontFamily: fontFamily.fontFamily,
-  textAlign: "center",
-  textDecoration: "none",
-  fontWeight: 600,
-  border: `2px solid ${colors.black}`,
-  color: colors.white,
-  fontSize: 15,
-  borderRadius: globalVars.radius,
-  padding: "7px 15px",
-  minWidth: 100,
-  transition: "background 0.3s, color 0.3s",
-  background: colors.black,
-  ":hover": {
-    background: colors.white,
-    color: colors.black,
-  },
-  ":disabled": {
-    background: colors.gray,
-    borderColor: colors.gray,
-    cursor: "not-allowed",
-    ":hover": {
-      color: colors.white,
-    },
-  },
-});
-
-export const ButtonDefault = glamorous.button({
-  display: "inline-block",
-  fontFamily: fontFamily.fontFamily,
-  letterSpacing: "1",
-  textAlign: "center",
-  fontWeight: 600,
-  outline: "none",
-  border: `2px solid ${colors.radicalPink}`,
-  color: colors.white,
-  cursor: "pointer",
-  fontSize: 15,
-  borderRadius: globalVars.radius,
-  padding: "7px 15px",
-  minWidth: 100,
-  transition: "background 0.3s, color 0.3s",
-  background: colors.radicalPink,
-  ":hover": {
-    background: colors.white,
-    color: colors.radicalPink,
-  },
-  ":disabled": {
-    background: colors.gray,
-    borderColor: colors.gray,
-    cursor: "not-allowed",
-    ":hover": {
-      color: colors.white,
-    },
-  },
-});
-
-export const DivGrid = glamorous.div({
-  "@supports (display: grid)": {
-    display: "grid",
-    gridGap: 15,
-    gridTemplateColumns: "repeat(2, 1fr)",
-    maxWidth: "450px",
-    margin: "0 auto",
-  },
-});
 
 export const ArticleKitten = glamorous.article({
   boxShadow: shadows.boxShadowGray,
   marginTop: 60,
-  borderRadius: ` ${globalVars.radiusLg}px ${globalVars.radiusLg}px ${globalVars.radius}px ${globalVars.radius}px`,
+  borderRadius: ` ${global.radiusLg}px ${global.radiusLg}px ${global.radius}px ${global.radius}px`,
   background: colors.cream,
   textAlign: "center",
 });
@@ -174,7 +17,7 @@ export const InputDefault = glamorous.input({
   display: "inline-block",
   width: "100%",
   borderBottom: `1px solid ${colors.radicalPink}`,
-  transition: `border-color ${globalVars.transitionTime}s`,
+  transition: `border-color ${global.transitionTime}s`,
   ":focus": {
     borderColor: colors.turquoiseGreen,
     backgroundColor: colors.white,
@@ -214,7 +57,7 @@ export const LabelDefault = glamorous.label({
 
 export const FormDefault = glamorous.form({
   border: `1px solid ${colors.radicalPink}`,
-  borderRadius: globalVars.radiusMd,
+  borderRadius: global.radiusMd,
   padding: "20px",
   margin: "0 auto",
   maxWidth: "400px",
@@ -228,50 +71,8 @@ export const Logo = glamorous.div({
   textAlign: "center",
 });
 
-export const BasketBtn = glamorous.button({
-  ...resetBtnStyles,
-  position: "absolute",
-  right: 20,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  top: "50%",
-  transform: "translateY(-50%)",
-  cursor: "pointer",
-  border: `2px solid ${colors.turquoiseGreen}`,
-  borderRadius: "50%",
-  width: 55,
-  height: 55,
-  transition: `border-color ${globalVars.transitionTime}s, transform ${globalVars.transitionTime}s`,
-  ":hover": {
-    borderColor: colors.radicalPink,
-    transform: "translateY(-50%) scale(1.05)",
-  },
-});
-
-export const ProfileBtn = glamorous.button({
-  ...resetBtnStyles,
-  position: "absolute",
-  left: 20,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  top: "50%",
-  transform: "translateY(-50%)",
-  cursor: "pointer",
-  border: `2px solid ${colors.turquoiseGreen}`,
-  borderRadius: "50%",
-  width: 55,
-  height: 55,
-  transition: `border-color ${globalVars.transitionTime}s, transform ${globalVars.transitionTime}s`,
-  ":hover": {
-    borderColor: colors.radicalPink,
-    transform: "translateY(-50%) scale(1.05)",
-  },
-});
-
 export const BasketList = glamorous.div({
-  borderRadius: globalVars.radius,
+  borderRadius: global.radius,
   boxShadow: shadows.boxShadowGray,
   maxWidth: 380,
   background: colors.turquoiseGreen,
@@ -301,7 +102,7 @@ export const BasketList = glamorous.div({
 export const BasketItem = glamorous.li({
   background: colors.white,
   marginBottom: 3,
-  borderRadius: globalVars.radius,
+  borderRadius: global.radius,
   padding: "5px 10px",
   display: "flex",
   fontSize: 16,
@@ -351,15 +152,6 @@ export const MenuMobile = glamorous.div({
   },
 });
 
-export const ButtonToggle = glamorous.button({
-  ...resetBtnStyles,
-  display: "none",
-  [mediaQueries.phone]: {
-    display: "block",
-    padding: "7px 0",
-  },
-});
-
 export const NavbarDefault = glamorous.nav({
   position: "relative",
   padding: "25px 10px",
@@ -379,13 +171,6 @@ export const TitleDefault = glamorous.div({
   },
 });
 
-export const MainContent = glamorous.section({
-  //   background: `linear-gradient(180deg,  #f9f9f9 50%,  ${colors.cream}90%)`,
-  padding: "0 20px",
-  textAlign: "center",
-  height: "100vh",
-});
-
 export const Intro = glamorous.p({
   margin: "0 auto 20px",
   fontSize: 18,
@@ -393,7 +178,7 @@ export const Intro = glamorous.p({
 });
 
 export const UserMenuDefault = glamorous.div({
-  borderRadius: globalVars.radius,
+  borderRadius: global.radius,
   boxShadow: shadows.boxShadowGray,
   maxWidth: 380,
   background: colors.turquoiseGreen,
@@ -417,19 +202,9 @@ export const UserMenuDefault = glamorous.div({
   },
   [mediaQueries.phone]: {
     width: "100%",
+    "::before": {
+      left: "auto",
+      right: 105,
+    },
   },
-});
-
-export const ModalContainer = glamorous.div({
-  position: "fixed",
-  inset: 0,
-  content: "",
-});
-
-export const CheckoutTable = glamorous.div({
-  maxWidth: "450px",
-  padding: "20px 40px",
-  margin: "0 auto",
-  border: "2px solid pink",
-  borderRadius: "3px",
 });
