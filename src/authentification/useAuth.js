@@ -4,9 +4,10 @@ function useAuth() {
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState(null);
 
-  const login = (username, password) => {
+  const login = (username, password, uuid) => {
     if (username === "Eva" && password === "123") {
       const loggedUser = {
+        id: uuid,
         username,
         password,
         isLogged: true,
@@ -21,9 +22,24 @@ function useAuth() {
     }
   };
 
-  const logout = () => {
+  const logout = (username) => {
+    setUserStatus(username, false);
+
     setUser(null);
     setIsLogged(false);
+  };
+
+  const setUserStatus = (username, status) => {
+    const users = getUsers();
+    const updatedUsers = users.map((user) => {
+      if (user.username === username) {
+        user.isLogged = status;
+      }
+
+      return user;
+    });
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
   };
 
   const saveUser = (user) => {
@@ -38,6 +54,8 @@ function useAuth() {
       ) {
         users = [...users, user];
         localStorage.setItem("users", JSON.stringify(users));
+      } else {
+        setUserStatus(user.username, true);
       }
     } else {
       users = [...users, user];
@@ -57,7 +75,7 @@ function useAuth() {
 
   const readStorage = () => {
     const users = getUsers();
-    console.log(users);
+    // console.log(users);
     if (users) {
       const user = users[0];
 

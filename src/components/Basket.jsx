@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
-import { Span } from "glamorous";
+import { Div, Span } from "glamorous";
 import BasketContent from "./BasketContent";
 import { BasketSvg } from "./SvgLib";
 import { ButtonNav } from "../styles/buttons";
 import { colors } from "../styles/variables";
+import useClickOutside from "../hooks/useClickOutside";
 
 const BasketButton = () => {
   const { basketCount } = useContext(StorageContext);
@@ -27,16 +28,17 @@ const BasketButton = () => {
     color: colors.white,
     fontWeight: "bold",
   };
+  let domElement = useClickOutside(() => setShowBasket(false));
 
   return (
-    <>
+    <Div innerRef={domElement}>
       <ButtonNav basket onClick={() => setShowBasket(!showBasket)}>
         <BasketSvg boxSize={21} />
         <Span css={counterStyles}>{basketCount}</Span>
       </ButtonNav>
 
       {showBasket && <BasketContent setShowBasket={setShowBasket} />}
-    </>
+    </Div>
   );
 };
 

@@ -74,28 +74,30 @@ export const Logo = glamorous.div({
 export const BasketList = glamorous.div({
   borderRadius: global.radius,
   boxShadow: shadows.boxShadowGray,
-  maxWidth: 380,
+  minWidth: 400,
   background: colors.turquoiseGreen,
   padding: 15,
   color: colors.white,
   position: "absolute",
-  right: 0,
+  right: 15,
   top: 93,
   zIndex: 1,
   fontSize: 18,
+
   "::before": {
     content: `''`,
     position: "absolute",
-    top: -15,
-    right: 35,
+    top: -10,
+    right: 25,
     width: 0,
     height: 0,
     borderStyle: "solid",
-    borderWidth: "0 12px 15px 12px",
+    borderWidth: "0 8px 10px 8px",
     borderColor: `transparent transparent ${colors.turquoiseGreen} transparent`,
   },
   [mediaQueries.phone]: {
-    width: "100%",
+    left: 15,
+    minWidth: "auto",
   },
 });
 
@@ -154,14 +156,15 @@ export const MenuMobile = glamorous.div({
 
 export const NavbarDefault = glamorous.nav({
   position: "relative",
-  padding: "25px 10px",
+  padding: "25px 15px",
+  margin: "0px -15px",
   height: 94,
   boxShadow: "0 4px 15px -15px rgba(0,0,0,0.9)",
 });
 
 export const TitleDefault = glamorous.div({
   textAlign: "center",
-  marginBottom: "40px",
+  marginBottom: "15px",
   fontSize: "35px",
   fontWeight: "bold",
   letterSpacing: "0.5px",
@@ -185,26 +188,27 @@ export const UserMenuDefault = glamorous.div({
   padding: 15,
   color: colors.white,
   position: "absolute",
-  left: 0,
+  left: 15,
   top: 93,
   zIndex: 1,
   fontSize: 18,
   "::before": {
     content: `''`,
     position: "absolute",
-    top: -15,
-    left: 35,
+    top: -10,
+    left: 25,
     width: 0,
     height: 0,
     borderStyle: "solid",
-    borderWidth: "0 12px 15px 12px",
+    borderWidth: "0 8px 10px 8px",
     borderColor: `transparent transparent ${colors.turquoiseGreen} transparent`,
   },
   [mediaQueries.phone]: {
-    width: "100%",
+    left: "auto",
+    right: 90,
     "::before": {
       left: "auto",
-      right: 105,
+      right: 20,
     },
   },
 });

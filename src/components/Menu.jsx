@@ -11,59 +11,44 @@ import {
 } from "../styles/styles";
 
 import { ButtonToggle, NavLinkDefault } from "../styles/buttons";
-import { ContainerModal } from "../styles/layout";
+import useClickOutside from "../hooks/useClickOutside";
+import { Div } from "glamorous";
+import MobileMenu from "./MobileMenu";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  let domElement = useClickOutside(() => setToggleMenu(false));
+
   return (
     <NavbarDefault>
-      <ButtonToggle onClick={() => setToggleMenu(!toggleMenu)}>
-        <HamburgerSvg boxSize={30} />
-      </ButtonToggle>
       <ProfileButton />
-      <MenuDefault className="menu">
-        <MenuListDefault className="menu__list">
-          <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/">Home</NavLinkDefault>
-          </MenuItemDefault>
-          <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/about">About</NavLinkDefault>
-          </MenuItemDefault>
-          <MenuItemDefault className="menu__item">
-            <NavLinkDefault to="/admin">Admin</NavLinkDefault>
-          </MenuItemDefault>
-        </MenuListDefault>
-      </MenuDefault>
-      <BasketButton />
-      <MenuMobile
-        className="submenu"
-        css={{ transform: toggleMenu && "translateX(0%) !important" }}
-      >
-        <MenuListDefault className="menu__list">
-          <MenuItemDefault className="menu__item">
-            <NavLinkDefault onClick={() => setToggleMenu(!toggleMenu)} to="/">
+      <MenuDefault>
+        <MenuListDefault>
+          <MenuItemDefault>
+            <NavLinkDefault activeclassname="active" to="/">
               Home
             </NavLinkDefault>
           </MenuItemDefault>
-          <MenuItemDefault className="menu__item">
-            <NavLinkDefault
-              onClick={() => setToggleMenu(!toggleMenu)}
-              to="/about"
-            >
+          <MenuItemDefault>
+            <NavLinkDefault activeclassname="active" to="/about">
               About
             </NavLinkDefault>
           </MenuItemDefault>
-          <MenuItemDefault className="menu__item">
-            <NavLinkDefault
-              onClick={() => setToggleMenu(!toggleMenu)}
-              to="/admin"
-            >
+          <MenuItemDefault>
+            <NavLinkDefault activeclassname="active" to="/admin">
               Admin
             </NavLinkDefault>
           </MenuItemDefault>
         </MenuListDefault>
-      </MenuMobile>
+      </MenuDefault>
+      <BasketButton />
+      <Div width={0} innerRef={domElement}>
+        <ButtonToggle onClick={() => setToggleMenu(!toggleMenu)}>
+          <HamburgerSvg boxSize={30} />
+        </ButtonToggle>
+        <MobileMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+      </Div>
     </NavbarDefault>
   );
 };

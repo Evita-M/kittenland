@@ -26,13 +26,13 @@ function App() {
         <Menu />
         <ContainerMain>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route element={<PrivateRoute />}>
-              <Route path="admin" element={<Admin />} />
+              <Route path="/admin" element={<Admin />} />
             </Route>
             <Route
-              path="login"
+              path="/login"
               element={isLogged ? <Navigate to="/admin" /> : <Login />}
             />
             <Route path="checkout" element={<Checkout />} />

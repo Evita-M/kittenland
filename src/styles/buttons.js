@@ -115,6 +115,10 @@ export const NavLinkDefault = glamorous(NavLink)({
     background: colors.white,
     color: colors.turquoiseGreen,
   },
+  "&.active": {
+    background: colors.white,
+    color: colors.turquoiseGreen,
+  },
   [mediaQueries.phone]: {
     width: "100%",
   },

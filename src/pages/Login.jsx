@@ -2,6 +2,8 @@ import { Div } from "glamorous";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { v4 as uuidv4 } from "uuid";
+
 import {
   FormDefault,
   FormItemDefault,
@@ -25,7 +27,7 @@ const Login = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    login(user, password);
+    login(user, password, uuidv4());
     navigate("/admin");
   };
 
@@ -48,7 +50,7 @@ const Login = () => {
             type="password"
             name="password"
             id="password"
-          />{" "}
+          />
         </FormItemDefault>
 
         <ButtonDefault

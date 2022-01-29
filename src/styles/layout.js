@@ -1,19 +1,22 @@
 import glamorous from "glamorous";
-import { colors } from "./variables";
+import { colors, mediaQueries } from "./variables";
 
 const ContainerApp = glamorous.div({
   maxWidth: "1200px",
   background: colors.white,
+  padding: "15px",
   margin: "0 auto",
-  minHeight: "100vh",
+  //   minHeight: "100vh",
   boxShadow: `0 0 10px 5px rgba(${colors.gray}, 0.5)`,
+  [mediaQueries.phone]: {
+    // margin: "0 auto",
+  },
 });
 
 const ContainerMain = glamorous.div({
-  //   background: `linear-gradient(180deg,  #f9f9f9 50%,  ${colors.cream}90%)`,
-  padding: "0 20px",
+  padding: "30px 0 0",
   textAlign: "center",
-  height: "100vh",
+  minHeight: "100vh",
 });
 
 const ContainerCenter = glamorous.div({
