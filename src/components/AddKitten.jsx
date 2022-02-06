@@ -13,17 +13,17 @@ import useClickOutside from "../hooks/useClickOutside";
 import { ButtonDefault } from "../styles/buttons";
 import { ContainerGrid, ContainerModal } from "../styles/layout";
 
-const AddKitten = ({ toggleShowForm, showForm }) => {
+const AddKitten = ({ toggleShowForm, kitten }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [price, setPrice] = useState("");
   const [desc, setDesc] = useState("");
-  const { addKitten } = useContext(StorageContext);
+  const { addKitten, updateKitten } = useContext(StorageContext);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    const kitten = {
+    const newKitten = {
       id: uuidv4(),
       name: name,
       age: age,
@@ -32,7 +32,12 @@ const AddKitten = ({ toggleShowForm, showForm }) => {
       inBasket: false,
     };
 
-    addKitten(kitten);
+    if (kitten) {
+      newKitten.id = kitten.id;
+      updateKitten(newKitten);
+    } else {
+      addKitten(newKitten);
+    }
 
     setName("");
     setAge("");
@@ -43,6 +48,13 @@ const AddKitten = ({ toggleShowForm, showForm }) => {
   };
 
   useEffect(() => {
+    if (kitten) {
+      setName(kitten.name);
+      setAge(kitten.age);
+      setPrice(kitten.price);
+      setDesc(kitten.desc);
+    }
+
     document.body.classList.add("overflow");
     return () => document.body.classList.remove("overflow");
   }, []);
@@ -56,7 +68,9 @@ const AddKitten = ({ toggleShowForm, showForm }) => {
         onSubmit={handleOnSubmit}
         css={{ marginBottom: 20 }}
       >
-        <Intro css={{ marginTop: 20 }}>Add your kitten here</Intro>
+        <Intro css={{ marginTop: 20 }}>
+          {kitten ? "Edit" : "Add"} your kitten here
+        </Intro>
         <FormItemDefault>
           <LabelDefault htmlFor="name">Name:</LabelDefault>
           <InputDefault
@@ -117,7 +131,7 @@ const AddKitten = ({ toggleShowForm, showForm }) => {
         </FormItemDefault>
         <ContainerGrid>
           <ButtonDefault success type="submit">
-            Add
+            {kitten ? "Update" : "Add"}
           </ButtonDefault>
           <ButtonDefault test="40" type="button" onClick={toggleShowForm}>
             Close

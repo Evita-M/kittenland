@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
 import { Div, Img, H3, P } from "glamorous";
 import { ArticleKitten } from "../styles/styles";
 import { ButtonDefault } from "../styles/buttons";
 import { colors, global } from "../styles/variables";
+import AddKitten from "../components/AddKitten";
 
 const Kitten = ({ item, isAdmin }) => {
   const { removeKitten, updateBasketStatus } = useContext(StorageContext);
+  const [showForm, setShowForm] = useState(false);
+  const toggleShowForm = () => {
+    setShowForm(!showForm);
+  };
 
   return (
     <ArticleKitten>
@@ -50,12 +55,30 @@ const Kitten = ({ item, isAdmin }) => {
 
           <p>
             {isAdmin ? (
-              <ButtonDefault
-                css={{ width: "100%" }}
-                onClick={() => removeKitten(item.id)}
-              >
-                Delete
-              </ButtonDefault>
+              <>
+                <ButtonDefault
+                  primary
+                  css={{ width: "100%", marginBottom: "10px" }}
+                  onClick={toggleShowForm}
+                >
+                  Edit
+                </ButtonDefault>
+                <ButtonDefault
+                  css={{ width: "100%" }}
+                  onClick={() => removeKitten(item.id)}
+                >
+                  Delete
+                </ButtonDefault>
+                {showForm ? (
+                  <AddKitten
+                    toggleShowForm={toggleShowForm}
+                    showForm={showForm}
+                    kitten={item}
+                  />
+                ) : (
+                  ""
+                )}
+              </>
             ) : (
               <ButtonDefault
                 css={{ width: "100%" }}
