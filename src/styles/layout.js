@@ -34,7 +34,7 @@ const ContainerGrid = glamorous.div({
 
 const ContainerModal = glamorous.div({
   position: "absolute",
-  height: "100vh",
+  height: "100%",
   padding: "0 15px",
   inset: 0,
   backgroundColor: "rgba(0,0,0,0.7)",
