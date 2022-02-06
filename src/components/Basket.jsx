@@ -28,6 +28,7 @@ const BasketButton = () => {
     color: colors.white,
     fontWeight: "bold",
   };
+
   let domElement = useClickOutside(() => setShowBasket(false));
 
   return (

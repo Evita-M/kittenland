@@ -4,27 +4,22 @@ import { colors, mediaQueries } from "./variables";
 const ContainerApp = glamorous.div({
   maxWidth: "1200px",
   background: colors.white,
-  padding: "15px",
+  padding: "15px 15px 30px",
   margin: "0 auto",
-  //   minHeight: "100vh",
+  minHeight: "100vh",
   boxShadow: `0 0 10px 5px rgba(${colors.gray}, 0.5)`,
-  [mediaQueries.phone]: {
-    // margin: "0 auto",
-  },
+  [mediaQueries.phone]: {},
 });
 
 const ContainerMain = glamorous.div({
   padding: "30px 0 0",
   textAlign: "center",
-  minHeight: "100vh",
 });
 
 const ContainerCenter = glamorous.div({
   maxWidth: "450px",
   padding: "20px 40px",
   margin: "0 auto",
-  //   border: "2px solid pink", // Variant
-  //   borderRadius: "3px", // Variant
 });
 
 const ContainerGrid = glamorous.div({
@@ -38,9 +33,11 @@ const ContainerGrid = glamorous.div({
 });
 
 const ContainerModal = glamorous.div({
-  position: "fixed",
+  position: "absolute",
+  height: "100vh",
+  padding: "0 15px",
   inset: 0,
-  content: "",
+  backgroundColor: "rgba(0,0,0,0.7)",
 });
 
 export {

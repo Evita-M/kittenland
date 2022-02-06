@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StorageContext } from "../context/StorageContext";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -7,13 +7,13 @@ import {
   TextareaDefault,
   FormDefault,
   FormItemDefault,
+  Intro,
 } from "../styles/styles";
-
+import useClickOutside from "../hooks/useClickOutside";
 import { ButtonDefault } from "../styles/buttons";
+import { ContainerGrid, ContainerModal } from "../styles/layout";
 
-import { ContainerGrid } from "../styles/layout";
-
-const AddKitten = ({ toggleShowForm }) => {
+const AddKitten = ({ toggleShowForm, showForm }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [price, setPrice] = useState("");
@@ -42,9 +42,21 @@ const AddKitten = ({ toggleShowForm }) => {
     toggleShowForm();
   };
 
+  useEffect(() => {
+    document.body.classList.add("overflow");
+    return () => document.body.classList.remove("overflow");
+  }, []);
+
+  let domElement = useClickOutside(() => toggleShowForm());
+
   return (
-    <>
-      <FormDefault onSubmit={handleOnSubmit} css={{ marginBottom: 20 }}>
+    <ContainerModal>
+      <FormDefault
+        innerRef={domElement}
+        onSubmit={handleOnSubmit}
+        css={{ marginBottom: 20 }}
+      >
+        <Intro css={{ marginTop: 20 }}>Add your kitten here</Intro>
         <FormItemDefault>
           <LabelDefault htmlFor="name">Name:</LabelDefault>
           <InputDefault
@@ -112,7 +124,7 @@ const AddKitten = ({ toggleShowForm }) => {
           </ButtonDefault>
         </ContainerGrid>
       </FormDefault>
-    </>
+    </ContainerModal>
   );
 };
 

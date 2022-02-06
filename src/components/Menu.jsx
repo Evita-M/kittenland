@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HamburgerSvg } from "./SvgLib";
 import BasketButton from "./Basket";
 import ProfileButton from "./Profile";
@@ -6,7 +6,6 @@ import {
   MenuDefault,
   MenuItemDefault,
   MenuListDefault,
-  MenuMobile,
   NavbarDefault,
 } from "../styles/styles";
 
@@ -20,6 +19,15 @@ const Menu = () => {
 
   let domElement = useClickOutside(() => setToggleMenu(false));
 
+  useEffect(() => {
+    if (toggleMenu) {
+      document.body.classList.add("overflow");
+    } else {
+      document.body.classList.remove("overflow");
+    }
+
+    return () => document.body.classList.remove("overflow");
+  });
   return (
     <NavbarDefault>
       <ProfileButton />

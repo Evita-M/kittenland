@@ -59,8 +59,12 @@ export const FormDefault = glamorous.form({
   border: `1px solid ${colors.radicalPink}`,
   borderRadius: global.radiusMd,
   padding: "20px",
-  margin: "0 auto",
-  maxWidth: "400px",
+  background: colors.white,
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "500px",
 });
 
 export const FormItemDefault = glamorous.p({

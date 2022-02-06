@@ -8,6 +8,7 @@ import {
   FormDefault,
   FormItemDefault,
   InputDefault,
+  Intro,
   LabelDefault,
 } from "../styles/styles";
 
@@ -33,6 +34,7 @@ const Login = () => {
 
   return (
     <Div maxWidth="400px" margin="0 auto">
+      <Intro>Login to your account</Intro>
       <FormDefault>
         <FormItemDefault>
           <LabelDefault htmlFor="user">User</LabelDefault>

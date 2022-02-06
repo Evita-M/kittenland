@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <ContainerApp>
+      <ContainerApp className="app">
         <Logo>
           <img src={logo} alt="" width={150} height={150} />
         </Logo>

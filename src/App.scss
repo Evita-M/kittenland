@@ -13,9 +13,6 @@ body {
   min-height: 100vh;
   min-width: 320px;
   background: hsla(174, 100%, 41%, 0.5);
-  @media (min-width: 576px) {
-    padding: 15px;
-  }
 }
 
 table {
@@ -24,4 +21,8 @@ table {
   border-spacing: 0;
   empty-cells: show;
   width: 100%;
+}
+
+.overflow {
+  overflow: hidden;
 }

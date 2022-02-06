@@ -47,7 +47,11 @@ const Admin = () => {
         </ButtonDefault>
       </ContainerGrid>
 
-      {showForm ? <AddKitten toggleShowForm={toggleShowForm} /> : ""}
+      {showForm ? (
+        <AddKitten toggleShowForm={toggleShowForm} showForm={showForm} />
+      ) : (
+        ""
+      )}
 
       {checkEmptyData() ? (
         <Intro>You have no kittens.</Intro>

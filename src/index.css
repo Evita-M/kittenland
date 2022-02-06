@@ -3,6 +3,7 @@ body {
   font-family: "Mukta", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
   /* background: hsla(139, 36%, 78%, 1); */
 }
 
