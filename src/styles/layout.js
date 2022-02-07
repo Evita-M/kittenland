@@ -8,7 +8,6 @@ const ContainerApp = glamorous.div({
   margin: "0 auto",
   minHeight: "100vh",
   display: "flex",
-
   flexDirection: "column",
   boxShadow: `0 0 10px 5px rgba(169,169,169, 0.5)`,
 });
