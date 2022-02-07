@@ -33,11 +33,24 @@ const ContainerGrid = glamorous.div({
 });
 
 const ContainerModal = glamorous.div({
-  position: "absolute",
+  position: "fixed",
   height: "100%",
-  padding: "0 15px",
   inset: 0,
-  backgroundColor: "rgba(0,0,0,0.7)",
+  backgroundColor: "rgba(0,0,0,0.8)",
+  zIndex: 1,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
+const ModalWrapper = glamorous.div({
+  maxWidth: "420px",
+  position: "relative",
+  flex: 1,
+  maxHeight: "100%",
+  margin: "0 15px",
+  padding: "15px 0",
+  overflow: "auto",
 });
 
 export {
@@ -46,4 +59,5 @@ export {
   ContainerGrid,
   ContainerCenter,
   ContainerModal,
+  ModalWrapper,
 };

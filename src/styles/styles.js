@@ -60,11 +60,11 @@ export const FormDefault = glamorous.form({
   borderRadius: global.radiusMd,
   padding: "20px",
   background: colors.white,
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "500px",
+  //   position: "absolute",
+  //   left: "50%",
+  //   top: "50%",
+  //   transform: "translate(-50%, -50%)",
+  //   width: "500px",
 });
 
 export const FormItemDefault = glamorous.p({
