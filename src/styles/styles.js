@@ -1,6 +1,5 @@
 import glamorous from "glamorous";
 import { global, colors, mediaQueries, shadows } from "./variables";
-import { NavLink } from "react-router-dom";
 
 export const ArticleKitten = glamorous.article({
   boxShadow: shadows.boxShadowGray,
@@ -60,11 +59,6 @@ export const FormDefault = glamorous.form({
   borderRadius: global.radiusMd,
   padding: "20px",
   background: colors.white,
-  //   position: "absolute",
-  //   left: "50%",
-  //   top: "50%",
-  //   transform: "translate(-50%, -50%)",
-  //   width: "500px",
 });
 
 export const FormItemDefault = glamorous.p({
@@ -142,14 +136,14 @@ export const MenuDefault = glamorous.div({
   },
 });
 
-export const MenuMobile = glamorous.div({
+export const MenuMobile = glamorous.nav({
   display: "none",
   position: "absolute",
   width: "100%",
-  height: "100vh",
   background: colors.turquoiseGreen,
-  top: "100%",
+  top: "268px",
   left: 0,
+  bottom: 0,
   [mediaQueries.phone]: {
     display: "block",
     transform: "translateX(-120%)",

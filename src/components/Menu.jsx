@@ -29,35 +29,37 @@ const Menu = () => {
     return () => document.body.classList.remove("overflow");
   });
   return (
-    <NavbarDefault>
-      <ProfileButton />
-      <MenuDefault>
-        <MenuListDefault>
-          <MenuItemDefault>
-            <NavLinkDefault activeclassname="active" to="/">
-              Home
-            </NavLinkDefault>
-          </MenuItemDefault>
-          <MenuItemDefault>
-            <NavLinkDefault activeclassname="active" to="/about">
-              About
-            </NavLinkDefault>
-          </MenuItemDefault>
-          <MenuItemDefault>
-            <NavLinkDefault activeclassname="active" to="/admin">
-              Admin
-            </NavLinkDefault>
-          </MenuItemDefault>
-        </MenuListDefault>
-      </MenuDefault>
-      <BasketButton />
-      <Div width={0} innerRef={domElement}>
-        <ButtonToggle onClick={() => setToggleMenu(!toggleMenu)}>
-          <HamburgerSvg boxSize={30} />
-        </ButtonToggle>
-        <MobileMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
-      </Div>
-    </NavbarDefault>
+    <>
+      <NavbarDefault>
+        <ProfileButton />
+        <MenuDefault>
+          <MenuListDefault>
+            <MenuItemDefault>
+              <NavLinkDefault activeclassname="active" to="/">
+                Home
+              </NavLinkDefault>
+            </MenuItemDefault>
+            <MenuItemDefault>
+              <NavLinkDefault activeclassname="active" to="/about">
+                About
+              </NavLinkDefault>
+            </MenuItemDefault>
+            <MenuItemDefault>
+              <NavLinkDefault activeclassname="active" to="/admin">
+                Admin
+              </NavLinkDefault>
+            </MenuItemDefault>
+          </MenuListDefault>
+        </MenuDefault>
+        <BasketButton />
+        <Div width={0} innerRef={domElement}>
+          <ButtonToggle onClick={() => setToggleMenu(!toggleMenu)}>
+            <HamburgerSvg boxSize={30} />
+          </ButtonToggle>
+        </Div>
+      </NavbarDefault>
+      <MobileMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+    </>
   );
 };
 

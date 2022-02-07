@@ -1,5 +1,5 @@
 import glamorous from "glamorous";
-import { colors, mediaQueries } from "./variables";
+import { colors } from "./variables";
 
 const ContainerApp = glamorous.div({
   maxWidth: "1200px",
@@ -7,13 +7,17 @@ const ContainerApp = glamorous.div({
   padding: "15px 15px 30px",
   margin: "0 auto",
   minHeight: "100vh",
-  boxShadow: `0 0 10px 5px rgba(${colors.gray}, 0.5)`,
-  [mediaQueries.phone]: {},
+  display: "flex",
+
+  flexDirection: "column",
+  boxShadow: `0 0 10px 5px rgba(169,169,169, 0.5)`,
 });
 
 const ContainerMain = glamorous.div({
   padding: "30px 0 0",
   textAlign: "center",
+  flex: "1 1 auto",
+  height: "100%",
 });
 
 const ContainerCenter = glamorous.div({
