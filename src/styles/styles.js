@@ -1,6 +1,14 @@
 import glamorous from "glamorous";
 import { global, colors, mediaQueries, shadows } from "./variables";
 
+export const Link = glamorous.a({
+  color: colors.radicalPink,
+  transition: `color ${global.transitionTime}`,
+  ":hover": {
+    color: colors.turquoiseGreen,
+  },
+});
+
 export const ArticleKitten = glamorous.article({
   boxShadow: shadows.boxShadowGray,
   marginTop: 60,
@@ -16,7 +24,7 @@ export const InputDefault = glamorous.input({
   display: "inline-block",
   width: "100%",
   borderBottom: `1px solid ${colors.radicalPink}`,
-  transition: `border-color ${global.transitionTime}s`,
+  transition: `border-color ${global.transitionTime}`,
   ":focus": {
     borderColor: colors.turquoiseGreen,
     backgroundColor: colors.white,
@@ -81,7 +89,6 @@ export const BasketList = glamorous.div({
   top: 93,
   zIndex: 1,
   fontSize: 18,
-
   "::before": {
     content: `''`,
     position: "absolute",
@@ -125,7 +132,7 @@ export const MenuListDefault = glamorous.ul({
 
 export const MenuItemDefault = glamorous.li({
   [mediaQueries.phone]: {
-    borderBottom: `2px solid ${colors.white}`,
+    marginBottom: `2px`,
     width: "100%",
   },
 });
@@ -139,6 +146,7 @@ export const MenuDefault = glamorous.div({
 export const MenuMobile = glamorous.nav({
   display: "none",
   position: "absolute",
+  padding: "2px 0",
   width: "100%",
   background: colors.turquoiseGreen,
   top: "268px",
@@ -173,7 +181,7 @@ export const TitleDefault = glamorous.div({
 });
 
 export const Intro = glamorous.p({
-  margin: "0 auto 20px",
+  margin: "0 auto 40px",
   fontSize: 18,
   maxWidth: "600px",
 });
@@ -209,4 +217,39 @@ export const UserMenuDefault = glamorous.div({
       right: 20,
     },
   },
+});
+
+export const AccordionDefault = glamorous.div({
+  width: "100%",
+  textAlign: "left",
+  maxWidth: "540px",
+  margin: "18px auto",
+  color: colors.white,
+});
+
+export const AccordionContent = glamorous.div({
+  color: "black",
+  padding: "20px",
+  "& a": {
+    color: colors.radicalPink,
+    transition: `color ${global.transitionTime}`,
+    textDecoration: "none",
+    fontWeight: "bold",
+    ":hover": {
+      color: colors.turquoiseGreen,
+    },
+  },
+});
+
+export const AccordionIcon = glamorous.span({
+  display: "block",
+  position: "absolute",
+  width: "15px",
+  height: "20px",
+  verticalAlign: "middle",
+  top: "50%",
+  transformOrigin: "center",
+  transform: "translateY(-50%)",
+  transition: `transform ${global.transitionTime}`,
+  right: "20px",
 });
