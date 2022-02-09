@@ -1,8 +1,9 @@
 const global = {
+  fontSize: "16px",
   radius: 3,
   radiusMd: 10,
   radiusLg: 25,
-  transitionTime: 0.3,
+  transitionTime: "0.3s",
 };
 
 const breakpoints = {
