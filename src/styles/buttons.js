@@ -1,6 +1,6 @@
 import glamorous from "glamorous";
 import { resetBtnStyles } from "./utilities";
-import { colors, mediaQueries } from "./variables";
+import { colors, global, mediaQueries } from "./variables";
 import propStyles from "prop-styles";
 import { Link, NavLink } from "react-router-dom";
 
@@ -49,7 +49,7 @@ const buttonNav = {
   borderRadius: "50%",
   width: 55,
   height: 55,
-  transition: `border-color ${global.transitionTime}s, transform ${global.transitionTime}s`,
+  transition: `border-color 0.3s, transform 0.3s`,
   ":hover": {
     borderColor: colors.radicalPink,
     transform: "translateY(-50%) scale(1.05)",
@@ -121,6 +121,9 @@ export const NavLinkDefault = glamorous(NavLink)({
   },
   [mediaQueries.phone]: {
     width: "100%",
+    padding: "15px",
+    border: "none",
+    borderRadius: 0,
   },
 });
 
@@ -147,4 +150,17 @@ export const ButtonToggle = glamorous.button({
     display: "block",
     padding: "7px 0",
   },
+});
+
+export const ButtonAccordion = glamorous.button({
+  ...resetBtnStyles,
+  width: "100%",
+  position: "relative",
+  textAlign: "left",
+  padding: "10px 20px",
+  fontSize: global.fontSize,
+  color: "white",
+  background: colors.turquoiseGreen,
+  transition: `background ${global.transitionTime}`,
+  borderRadius: global.radius,
 });
