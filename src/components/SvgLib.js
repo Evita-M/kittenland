@@ -61,3 +61,20 @@ export const SvgRemove = ({ boxSize = 30 }) => {
     </Svg>
   );
 };
+
+export const SvgArrowDown = ({ boxSize = 15 }) => {
+  return (
+    <Svg
+      viewBox="0 0 12 7"
+      width={boxSize}
+      height={boxSize}
+      fill={colors.white}
+    >
+      <path
+        d="M6,7L6,7L6,7C5.9,7,5.7,7,5.6,6.9c0,0,0,0,0,0c-0.1,0-0.2-0.1-0.3-0.2c0,0,0,0,0,0l-4.7-5c-0.4-0.4-0.4-1,0-1.4
+	c0.4-0.4,1-0.4,1.4,0l4,4.2l4-4.2c0.4-0.4,1-0.4,1.4,0c0.4,0.4,0.4,1,0,1.4l-4.7,5c0,0,0,0,0,0C6.6,6.8,6.5,6.9,6.4,6.9c0,0,0,0,0,0
+	C6.3,7,6.1,7,6,7z"
+      />
+    </Svg>
+  );
+};
