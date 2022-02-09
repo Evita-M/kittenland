@@ -22,7 +22,7 @@ const colors = {
   celadonBlue: "hsla(198, 63%, 38%, 1)",
   turquoiseGreen: "hsla(174, 100%, 41%, 1)",
   green: "hsla(131, 76%, 63%)",
-  cream: "hsla(71, 100%, 87%, 1)",
+  cream: "hsla(60, 100%, 95%, 1)",
   radicalPink: "hsla(338, 83%, 62%, 1)",
   white: "#ffffff",
   gray: "rgb(169, 169, 169)",
